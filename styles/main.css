@@ -28,14 +28,22 @@ a.banner-links {
   text-align: center;
   padding: 10px;
   border-radius: 10px;
-  margin: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+#banner-link-spacer {
+  display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-around;
-  background-color: rgba(0, 0, 0, 0.5);
 }
+
 a:hover {
   color: yellowgreen;
+}
+
+.body-text {
+  margin: 5%;
 }
 
 a.footer {
