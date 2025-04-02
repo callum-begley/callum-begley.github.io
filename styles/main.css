@@ -52,7 +52,29 @@ a:hover {
 }
 
 .body-text {
-  margin: 5%;
+  margin-left: 5%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+/*footer spacer*/
+body {
+  padding-bottom: 100px;
+}
+
+a.blog-links {
+  font-size: 1em;
+  color: white;
+  text-align: left;
+}
+
+.blog-block {
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-bottom: 1%;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: rgba(25, 25, 25, 0.5);
 }
 
 a.footer {
