@@ -68,3 +68,28 @@ footer {
   left: 0;
   right: 0;
 }
+
+@media only screen and (max-width: 680px) {
+  h1 {
+    font-size: 2em;
+  }
+  a.banner-links-current {
+    font-size: 1em;
+  }
+  a.banner-links {
+    font-size: 1em;
+  }
+  #banner {
+    height: 150px;
+  }
+}
+
+@media only screen and (max-width: 370px) {
+  h1 {
+    font-size: 1.5em;
+  }
+  #banner {
+    height: 150px;
+    width: 370px;
+  }
+}
