@@ -30,6 +30,7 @@ a.banner-links {
   border-radius: 10px;
   background-color: rgba(0, 0, 0, 0.5);
 }
+
 a.banner-links-current {
   font-size: 2.5em;
   color: yellowgreen;
@@ -38,6 +39,7 @@ a.banner-links-current {
   border-radius: 10px;
   background-color: rgba(0, 0, 0, 0.5);
 }
+
 #banner-link-spacer {
   display: flex;
   flex-direction: row;
