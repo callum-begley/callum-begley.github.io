@@ -26,18 +26,24 @@ a.banner-links {
   font-size: 2.5em;
   color: white;
   text-align: center;
-  padding: 10px 20px 30px 20px;
+  padding: 10px 20px 10px 20px;
   border-radius: 10px;
   background-color: rgba(0, 0, 0, 0.5);
+  border-color: black;
+  border-style: solid;
+  border-width: 3px;
 }
 
 a.banner-links-current {
   font-size: 2.5em;
   color: yellowgreen;
   text-align: center;
-  padding: 10px 20px 30px 20px;
+  padding: 10px 20px 10px 20px;
   border-radius: 10px;
   background-color: rgba(0, 0, 0, 0.5);
+  border-color: black;
+  border-style: solid;
+  border-width: 3px;
 }
 
 #banner-link-spacer {
@@ -49,6 +55,7 @@ a.banner-links-current {
 
 a:hover {
   color: yellowgreen;
+  border-color: white;
 }
 
 .body-text {
@@ -57,15 +64,17 @@ a:hover {
   margin-bottom: 2%;
 }
 
-/*footer spacer*/
 body {
-  padding-bottom: 100px;
+  min-height: 98vh;
+  display: flex;
+  flex-direction: column;
 }
 
 img {
-  width: auto;
+  width: 300px;
   height: 300px;
-  margin-right: 5px;
+  margin: 5px;
+  object-fit: cover;
 }
 
 .about-spacing {
@@ -99,10 +108,11 @@ a.footer {
 footer {
   padding: 10px 10px 10px 80px;
   background-color: rgb(25, 25, 25);
-  position: fixed;
+  position: static;
   bottom: 0;
   left: 0;
   right: 0;
+  margin-top: auto;
 }
 
 @media only screen and (max-width: 680px) {
@@ -127,5 +137,13 @@ footer {
   #banner {
     height: 150px;
     width: 370px;
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  img:hover {
+    transform: scale(2);
+    transition: transform 0.2s;
+    height: auto;
   }
 }
