@@ -18,6 +18,9 @@ body {
 }
 
 h1 {
+  font-family: 'Rubik Glitch', system-ui;
+  font-style: normal;
+  font-weight: normal;
   font-size: 4em;
   text-align: center;
 }
@@ -122,6 +125,17 @@ a.footer {
 
 a:hover {
   color: limegreen;
+}
+
+.blog1-img {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  padding: 2%;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: rgba(25, 25, 25, 0.5);
 }
 
 footer {
