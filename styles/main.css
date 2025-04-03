@@ -130,6 +130,7 @@ a:hover {
 .blog1-img {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-around;
   padding: 2%;
