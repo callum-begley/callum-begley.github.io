@@ -26,24 +26,24 @@ a.banner-links {
   font-size: 2.5em;
   color: white;
   text-align: center;
-  padding: 10px 20px 10px 20px;
+  padding: 0px 20px 10px 20px;
   border-radius: 10px;
   background-color: rgba(0, 0, 0, 0.5);
-  border-color: black;
+  border-color: rgba(0, 0, 0, 0.5);
   border-style: solid;
-  border-width: 3px;
+  border-width: 2px;
 }
 
 a.banner-links-current {
   font-size: 2.5em;
   color: yellowgreen;
   text-align: center;
-  padding: 10px 20px 10px 20px;
+  padding: 0px 20px 10px 20px;
   border-radius: 10px;
   background-color: rgba(0, 0, 0, 0.5);
   border-color: black;
   border-style: solid;
-  border-width: 3px;
+  border-width: 2px;
 }
 
 #banner-link-spacer {
@@ -55,7 +55,10 @@ a.banner-links-current {
 
 a:hover {
   color: yellowgreen;
-  border-color: white;
+  border-color: yellowgreen;
+  border-style: solid;
+  border-width: 2px;
+  background-color: rgba(0, 0, 0, 1);
 }
 
 .body-text {
@@ -134,13 +137,16 @@ footer {
   }
 }
 
-@media only screen and (max-width: 370px) {
+@media only screen and (max-width: 385px) {
   h1 {
     font-size: 1.5em;
   }
   #banner {
     height: 150px;
     width: 370px;
+  }
+  footer {
+    padding-left: 0%;
   }
 }
 
