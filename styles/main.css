@@ -53,7 +53,15 @@ a.banner-links-current {
   justify-content: space-around;
 }
 
-a:hover {
+a.banner-links-current:hover {
+  color: yellowgreen;
+  border-color: yellowgreen;
+  border-style: solid;
+  border-width: 2px;
+  background-color: rgba(0, 0, 0, 1);
+}
+
+a.banner-links:hover {
   color: yellowgreen;
   border-color: yellowgreen;
   border-style: solid;
