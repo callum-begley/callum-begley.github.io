@@ -167,6 +167,9 @@ footer {
   #banner {
     height: 150px;
   }
+  .blog1-img-small {
+    width: 300px;
+  }
 }
 
 @media only screen and (max-width: 385px) {
