@@ -36,7 +36,7 @@ a.banner-links {
 
 a.banner-links-current {
   font-size: 2.5em;
-  color: yellowgreen;
+  color: limegreen;
   text-align: center;
   padding: 0px 20px 10px 20px;
   border-radius: 10px;
@@ -54,16 +54,16 @@ a.banner-links-current {
 }
 
 a.banner-links-current:hover {
-  color: yellowgreen;
-  border-color: yellowgreen;
+  color: limegreen;
+  border-color: limegreen;
   border-style: solid;
   border-width: 2px;
   background-color: rgba(0, 0, 0, 1);
 }
 
 a.banner-links:hover {
-  color: yellowgreen;
-  border-color: yellowgreen;
+  color: limegreen;
+  border-color: limegreen;
   border-style: solid;
   border-width: 2px;
   background-color: rgba(0, 0, 0, 1);
@@ -111,9 +111,17 @@ a.blog-links {
   background-color: rgba(25, 25, 25, 0.5);
 }
 
+a.back {
+  color: white;
+}
+
 a.footer {
   color: white;
   margin-left: 3%;
+}
+
+a:hover {
+  color: limegreen;
 }
 
 footer {
