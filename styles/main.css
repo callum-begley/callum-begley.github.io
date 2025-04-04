@@ -94,7 +94,7 @@ img.about-img {
 .about-spacing {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   margin: 5%;
 }
@@ -166,9 +166,6 @@ footer {
   }
   #banner {
     height: 150px;
-  }
-  .blog1-img-small {
-    width: 300px;
   }
 }
 
