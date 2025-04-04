@@ -152,6 +152,7 @@ footer {
 
 #warning {
   color: red;
+  font-weight: bold;
 }
 
 @media only screen and (max-width: 680px) {
