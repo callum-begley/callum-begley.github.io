@@ -1,7 +1,7 @@
 # callum-begley.github.io
-https://callum-begley.github.io/index.html
+Link to **[my webpage](https://callum-begley.github.io/index.html "The best site on the internet")**
 
-## My Blog
+---
 ### Dicetory
 >Home
 >
@@ -18,3 +18,15 @@ https://callum-begley.github.io/index.html
 >About Me
 >
 >Blank
+>
+
+---
+
+## About
+
+
+## Contact
+
+<cfbegley7@gmail.com>
+
+<https://github.com/callum-begley>
