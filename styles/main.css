@@ -161,16 +161,19 @@ code {
   height: auto;
 }
 
-.memeBody {
+#memeBody {
   margin-left: 5%;
   margin-right: 5%;
   margin-bottom: 1%;
   padding: 10px;
   border-radius: 10px;
   background-color: rgba(25, 25, 25, 0.5);
+}
+
+#memeSpacer {
   display: flex;
   flex-direction: row;
-  justify-items: space-between;
+  justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
 }
@@ -195,6 +198,9 @@ code {
   }
   .blog1-img-small {
     width: 250px;
+  }
+  .memeImg {
+    width: auto;
   }
 }
 
