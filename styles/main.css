@@ -151,6 +151,10 @@ footer {
   display: block;
 }
 
+code {
+  color: aqua;
+}
+
 #warning {
   color: red;
   font-weight: bold;
