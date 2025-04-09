@@ -155,6 +155,26 @@ code {
   color: aqua;
 }
 
+.memeImg {
+  margin: 1%;
+  width: 500px;
+  height: auto;
+}
+
+.memeBody {
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-bottom: 1%;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: rgba(25, 25, 25, 0.5);
+  display: flex;
+  flex-direction: row;
+  justify-items: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
 #warning {
   color: red;
   font-weight: bold;
