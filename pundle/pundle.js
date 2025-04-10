@@ -139,3 +139,4 @@ function isAlpha(key) {
 }
 
 init()
+$('#textinput').trigger('tap')
