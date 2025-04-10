@@ -16,7 +16,7 @@
 // ans: Rivet
 
 //let hiddenWord = ['rivet', 'rivet']
-let wordList = ['rivet', 'trees']
+let wordList = ['rivet']
 
 let gameState = {
   gameGrid: Array(6)
@@ -106,7 +106,9 @@ function checkLetters() {
 }
 
 function isWordValid(enteredWord) {
-  return wordList.includes(enteredWord)
+  if (enteredWord.length == 5) {
+    return enteredWord
+  }
 }
 
 function getEnteredWord() {
