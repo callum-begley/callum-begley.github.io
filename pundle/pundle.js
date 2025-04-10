@@ -26,7 +26,7 @@ let gameState = {
 function init() {
   const gameContainer = document.getElementById('gameContainer')
   makeGameGrid(gameContainer)
-  console.log(gameState.hiddenWord)
+  //console.log(gameState.hiddenWord)
   keyboardpresses()
 }
 
