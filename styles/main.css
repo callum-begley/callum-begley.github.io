@@ -205,20 +205,23 @@ code {
     width: 250px;
   }
   .memeImg {
-    width: auto;
+    width: 300px;
+  }
+  .body-text {
+    margin-left: 1%;
   }
 }
 
 @media only screen and (max-width: 385px) {
-  h1 {
-    font-size: 1.5em;
-  }
   #banner {
     height: 150px;
-    width: 370px;
+    width: 100%;
   }
   footer {
     padding-left: 0%;
+  }
+  .memeImg {
+    width: 200px;
   }
 }
 
