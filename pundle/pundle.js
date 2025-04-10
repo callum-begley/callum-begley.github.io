@@ -12,11 +12,7 @@
 // all green complete
 // after 6th wrong guess fail
 
-// Prompt: Whats a frogs favorite fastener?
-// ans: Rivet
-
-//let hiddenWord = ['rivet', 'rivet']
-let wordList = ['rivet']
+let wordList = ['buggy']
 
 let gameState = {
   gameGrid: Array(6)
