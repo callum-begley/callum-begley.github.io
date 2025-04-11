@@ -141,5 +141,5 @@ function isAlpha(key) {
 init()
 
 focusMethod = function getFocus() {
-  document.getElementById('myTextField').focus()
+  document.getElementById('mobileButtonInput').focus()
 }
