@@ -23,7 +23,7 @@ Link to **[my webpage](https://callum-begley.github.io/index.html "The best site
 ---
 
 ## About
-This webpage is a place for me to show what I've learnt and keep you updated wioth my blog posts.
+This webpage is a place for me to show what I've learnt and keep you updated with my blog posts.
 
 ## Contact
 
