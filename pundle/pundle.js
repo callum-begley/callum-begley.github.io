@@ -139,4 +139,7 @@ function isAlpha(key) {
 }
 
 init()
-$('#textinput').trigger('tap')
+
+focusMethod = function getFocus() {
+  document.getElementById('myTextField').focus()
+}

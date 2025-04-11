@@ -207,6 +207,14 @@ code {
   font-size: 2em;
 }
 
+#mobileButton {
+  display: none;
+}
+
+#mobileButtonInput {
+  display: none;
+}
+
 @media only screen and (max-width: 680px) {
   h1 {
     font-size: 2em;
@@ -249,5 +257,11 @@ code {
     transform: scale(2);
     transition: transform 0.2s;
     height: auto;
+  }
+}
+@media only screen and (max-width: 1000px) {
+  #mobileButton {
+    display: block;
+    margin: auto;
   }
 }
