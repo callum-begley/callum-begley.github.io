@@ -55,37 +55,141 @@
         code line by line. Control Flow lets the program make decisions when to
         execute the code. It does this with conditional statements and loops.
       </p>
+      <p><strong>Conditional statements</strong></p>
       <p>
         Conditional statements are checks to see wether a condition is true or
-        false.
+        false. Below is an example to see wether you need to take an umbrella
+        with you.
       </p>
       <pre>
-        <code>if (this is true) { 
+        <code>  if (its raining outside) { 
 
-                do this 
+                grab umbrella
+                leave
+
+              } else if (if it looks like it might rain){
+
+                grab umbrella
+                leave
 
               } else {
 
-                do that
+                put on a hat
+                leave
 
               }
         </code>
         </pre>
-      <p>For loops</p>
+      <p><strong>Loops</strong></p>
+      <p>
+        Loops let you repeat an action a fixed number of times or until a
+        condition is met. a For loop is set with a counter (i = 0) and the
+        condition is how many times to loop through (i &lt; 10) then the count
+        is updated (i++).
+      </p>
       <pre>
       <code>for (let i = 0; i &lt; 10; i++) { 
 
-              do this 
+              loop through 10 times
 
             } 
       </code>
       </pre>
-      <h3>What is the DOM?</h3>
-      <p></p>
+      <p>
+        You have to be careful to give a condition that will end or you may
+        create an infinite loop that could crash your computer.
+      </p>
+      <p>
+        <strong
+          >Do not do the below loop. As eating snacks will never make boredom
+          false you will end up snacking infinitely.</strong
+        >
+      </p>
+
+      <pre>
+          <code>while (boredom is true) { 
+    
+                  eat snacks
+    
+                } 
+          </code>
+          </pre>
+      <div class="blog5img">
+        <section>
+          <h3>What is the DOM?</h3>
+          <p>
+            The DOM, or Document Object Model is a representation of the webpage
+            that lets JavaScript interact with the style, structure and content
+            of the page. It is a tree like structure made up of the elements of
+            the HTML document, with other elements and attributes nested in.
+            (See image for a visual representation.) These elements can be
+            modified, added and removed using JavaScript. The DOM also has the
+            ability to react to user events like clicks ot key presses, making
+            your website more interactive and responsive.
+          </p>
+          <p>
+            Below are some examples of how JavaScript uses the DOM to interact
+            with the HTML elements:
+          </p>
+          <p>
+            <code>document.querySelectorAll("p")</code> will access all the
+            <code>p</code>
+            elements
+          </p>
+          <p>
+            <code>document.getElementById("this")</code> will access the element
+            with <code>id="this"</code>
+          </p>
+          <p>
+            <code>document.getElementByClassName("that")</code> will access all
+            the elements with <code>class="that"</code>
+          </p>
+        </section>
+
+        <section>
+          <img src="/images/dom.webp" class="memeImg" />
+        </section>
+      </div>
       <h3>Accessing data from arrays and objects</h3>
-      <p></p>
+      <p><strong>Arrays</strong></p>
+      <p>
+        Arrays are a list of values in one variable. These values can be
+        accessed by referring to their index numbers. It is important to note,
+        arrays start counting at 0.
+      </p>
+      <pre>
+                           0        1        2
+        <code>const drinks = ["coke", "sprite", "fanta"];
+          let myDrink = drinks[0];</code>
+      </pre>
+      <p>
+        myDrink selects the first item in the array (0), so my drink will be a
+        coke. If it was <code>drinks[2]</code> my drink would be a fanta.
+      </p>
+      </br>
+      <p><strong>Objects</strong></p>
+      <p>Objects are variables that hold key and value pairs. below is an example object of a dog:</p>
+      <pre>
+        <code>const dog1 = {
+            name: "Chump", 
+            breed: "Pug", 
+            cuteness: 10,
+          }</code>
+      </pre>
+      <p>The keys are the name, breed and cuteness, with the values detailed beside them. Objects properties can be accessed by objectName.keyName or objectName["keyName"]</p>
+      <p><code>dog1.name</code> will give you a string of "Chump"<code>dog1.cuteness</code> will give you the number 10</p>
+      <br />
+
       <h3>What are functions? Why are they helpful</h3>
-      <p></p>
+      <p>A function is a block of code that does a particular task. Functions will only run if they are called. Functions are made by using the keyword <code>function</code>, then the name followed by brackets. They can also take in parameters inside the brackets.</p>
+      <pre>
+        <code>function exampleFunction() {
+          execute this code
+        }
+        </code>
+      </pre>
+      <p>This will only run if it is called by <code>exampleFunction()</code> outright or inside of another function.</p>
+      <p>Functions are very helpful as they save writing out the same code over and over again. If you need to execute the same lines of codes multiple times, create a function and call to it with just the name and brackets whenever it is needed.</p>
       <br />
       <br />
       <a class="back" href="/blog/blog-main.html">&larr; Back to all Blogs</a>
