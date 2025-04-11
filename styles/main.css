@@ -161,6 +161,12 @@ code {
   height: auto;
 }
 
+#aeroplane {
+  margin: 1%;
+  width: 500px;
+  height: auto;
+}
+
 #memeBody {
   margin-left: 5%;
   margin-right: 5%;
@@ -186,6 +192,19 @@ code {
 .blog5img {
   display: flex;
   flex-direction: row;
+}
+
+#aeroplane {
+  width: 599.25px;
+  height: 400px;
+  display: inline-block;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+#aeroplaneLink {
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: 2em;
 }
 
 @media only screen and (max-width: 680px) {
