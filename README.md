@@ -13,17 +13,17 @@ Link to **[my webpage](https://callum-begley.github.io/index.html "The best site
 >>
 >> Blog 2
 >>
->> Blog 3
+>> Blog 3 etc...
 >
 >About Me
 >
->Blank
+>Memes
 >
 
 ---
 
 ## About
-
+This webpage is a place for me to show what I've learnt and keep you updated wioth my blog posts.
 
 ## Contact
 
