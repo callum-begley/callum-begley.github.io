@@ -212,7 +212,9 @@ code {
 }
 
 #mobileButtonInput {
-  display: none;
+  /* display: none; */
+  display: block;
+  margin: auto;
 }
 
 @media only screen and (max-width: 680px) {
