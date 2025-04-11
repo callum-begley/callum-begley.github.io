@@ -207,16 +207,6 @@ code {
   font-size: 2em;
 }
 
-#mobileButton {
-  display: none;
-}
-
-#mobileButtonInput {
-  /* display: none; */
-  display: block;
-  margin: auto;
-}
-
 @media only screen and (max-width: 680px) {
   h1 {
     font-size: 2em;
@@ -262,8 +252,4 @@ code {
   }
 }
 @media only screen and (max-width: 1000px) {
-  #mobileButton {
-    display: block;
-    margin: auto;
-  }
 }
