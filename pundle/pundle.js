@@ -139,7 +139,3 @@ function isAlpha(key) {
 }
 
 init()
-
-focusMethod = function getFocus() {
-  document.getElementById('mobileButtonInput').focus()
-}
