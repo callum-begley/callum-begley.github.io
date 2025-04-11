@@ -190,16 +190,16 @@ code {
 }
 
 .blog5img {
-  display: flex;
-  flex-direction: row;
+  display: block;
+  margin: auto;
+  max-width: 500px;
 }
 
 #aeroplane {
   width: 599.25px;
   height: 400px;
-  display: inline-block;
-  margin-left: 10%;
-  margin-right: 10%;
+  display: block;
+  margin: auto;
 }
 #aeroplaneLink {
   cursor: pointer;
