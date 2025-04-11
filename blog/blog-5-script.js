@@ -24,7 +24,7 @@ function fly2(e) {
 
 function nofuel(e) {
   document.getElementById('aeroplane').src = '/images/planecrash.jpeg'
-  link.textContent = 'Sorry you crash landed :('
+  link.textContent = 'Whoops... you crash landed :('
   e.preventDefault()
   link.addEventListener('click', fly2)
 }
