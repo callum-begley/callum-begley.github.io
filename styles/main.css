@@ -207,6 +207,11 @@ code {
   font-size: 2em;
 }
 
+.blogVideo {
+  justify-self: center;
+  display: block;
+}
+
 @media only screen and (max-width: 680px) {
   h1 {
     font-size: 2em;
