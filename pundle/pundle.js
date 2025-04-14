@@ -12,7 +12,7 @@
 // all green complete
 // after 6th wrong guess fail
 
-let wordList = ['buggy']
+let wordList = ['array']
 
 let gameState = {
   gameGrid: Array(6)
