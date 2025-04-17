@@ -57,9 +57,16 @@
   .charBox {
     width: 50px;
     height: 50px;
+    font-size: x-large;
   }
   #gameContainer {
     height: 400px;
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  .simple-keyboard.myTheme1 {
+    display: none;
   }
 }
 
@@ -69,7 +76,6 @@
   display: block;
   justify-self: center;
   background: black;
-  background-color: black;
 }
 
 .simple-keyboard.myTheme1 .hg-button {
@@ -79,6 +85,7 @@
   align-items: center;
   color: #ffffff;
   background: rgb(39, 39, 39);
+  font-weight: bold;
 }
 
 .simple-keyboard.myTheme1 {

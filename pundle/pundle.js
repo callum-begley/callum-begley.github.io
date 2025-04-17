@@ -89,18 +89,22 @@ const keyboard = new Keyboard({
       ' Z X C V B N M  ',
     ],
   },
+  display: {
+    '{bksp}': '&larr;',
+    '{enter}': 'Enter',
+  },
 })
 
 function onKeyPress(button) {
   if (button === '{enter}') {
-    let word = getEnteredWord()
-    if (isWordValid(word)) {
+    let word2 = getEnteredWord()
+    if (isWordValid(word2)) {
       checkLetters()
-      checkTurn(word)
+      checkTurn(word2.toLowerCase())
       gameState.currentRow++
       gameState.currentCol = 0
     } else {
-      alert('The word is not valid')
+      alert('That word is not long enough')
     }
   } else if (button === '{bksp}') {
     deleteLetter()
@@ -112,9 +116,12 @@ function onKeyPress(button) {
 //---------------------------------------------------------------
 
 function checkTurn(enteredWord) {
-  let won = gameState.hiddenWord === enteredWord
-  let gameOver = gameState.currentRow === 5
+  console.log('yes')
+  console.log(enteredWord)
 
+  let won = gameState.hiddenWord === enteredWord
+  console.log(won)
+  let gameOver = gameState.currentRow === 5
   if (won) {
     alert('You guessed the hidden word!')
   } else if (gameOver) {
@@ -127,7 +134,7 @@ function checkLetters() {
     let charBox = document.getElementById(
       'charBox.' + gameState.currentRow + '' + i
     )
-    let letter = charBox.textContent
+    let letter = charBox.textContent.toLowerCase()
 
     if (letter == gameState.hiddenWord[i]) {
       charBox.classList.add('correct')
