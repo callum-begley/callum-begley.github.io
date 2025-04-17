@@ -212,6 +212,10 @@ code {
   display: block;
 }
 
+.listSpacer {
+  margin-top: 10px;
+}
+
 @media only screen and (max-width: 680px) {
   h1 {
     font-size: 2em;
