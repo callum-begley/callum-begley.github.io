@@ -12,7 +12,7 @@
 // all green complete
 // after 6th wrong guess fail
 
-let wordList = ['array', 'cache']
+let wordList = ['array', 'cache', 'buggy', 'nerds']
 
 let gameState = {
   gameGrid: Array(6)
@@ -134,6 +134,14 @@ function getPrompt() {
   if (word === 'cache') {
     document.getElementById('punPrompt').innerHTML =
       'What did the robber steal from the server?'
+  }
+  if (word === 'buggy') {
+    document.getElementById('punPrompt').innerHTML =
+      "What's a programmers least favourite beach vehicle?"
+  }
+  if (word === 'nerds') {
+    document.getElementById('punPrompt').innerHTML =
+      "What's a programmers favourite candy?"
   }
 }
 
