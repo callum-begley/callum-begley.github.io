@@ -60,14 +60,17 @@ function keyboardpresses() {
         gameState.currentRow++
         gameState.currentCol = 0
       } else {
-        alert('The word is not valid')
+        document.getElementById('alertBox').innerHTML = 'MUST BE 5 LETTERS'
+        document.getElementById('alertBox').classList.remove('hide')
       }
     }
     if (key === 'Backspace') {
       deleteLetter()
+      document.getElementById('alertBox').classList.add('hide')
     }
     if (isAlpha(key)) {
       addLetter(key)
+      document.getElementById('alertBox').classList.add('hide')
     }
     updateGameGrid()
   }
@@ -97,39 +100,29 @@ const keyboard = new Keyboard({
 
 function onKeyPress(button) {
   if (button === '{enter}') {
-    let word2 = getEnteredWord()
-    if (isWordValid(word2)) {
+    let word = getEnteredWord()
+    if (isWordValid(word)) {
       checkLetters()
-      checkTurn(word2.toLowerCase())
+      checkTurn(word.toLowerCase())
       gameState.currentRow++
       gameState.currentCol = 0
     } else {
-      alert('That word is not long enough')
+      document.getElementById('alertBox').innerHTML = 'MUST BE 5 LETTERS'
+      document.getElementById('alertBox').classList.remove('hide')
       return
     }
   } else if (button === '{bksp}') {
     deleteLetter()
+    document.getElementById('alertBox').innerHTML = ''
+    document.getElementById('alertBox').classList.add('hide')
   } else if (button !== '') {
     addLetter(button)
+    document.getElementById('alertBox').innerHTML = ''
+    document.getElementById('alertBox').classList.add('hide')
   }
   updateGameGrid()
 }
 //---------------------------------------------------------------
-
-function checkTurn(enteredWord) {
-  console.log('yes')
-  console.log(enteredWord)
-
-  let won = gameState.hiddenWord === enteredWord
-  console.log(won)
-  let gameOver = gameState.currentRow === 5
-  if (won) {
-    alert('You guessed the hidden word!')
-  } else if (gameOver) {
-    alert('You lost :( the answer was ' + gameState.hiddenWord + '.')
-  }
-}
-
 function checkLetters() {
   for (let i = 0; i < 5; i++) {
     let charBox = document.getElementById(
@@ -144,6 +137,25 @@ function checkLetters() {
     } else {
       charBox.classList.add('empty')
     }
+  }
+}
+
+function checkTurn(enteredWord) {
+  console.log('yes')
+  console.log(enteredWord)
+
+  let won = gameState.hiddenWord === enteredWord
+  console.log(won)
+  let gameOver = gameState.currentRow === 5
+  if (won) {
+    document.getElementById('alertBox').innerHTML = 'YOU WON!'
+    gameState.currentRow = 5
+    gameState.currentCol = 5
+    document.getElementById('alertBox').classList.remove('hide')
+  } else if (gameOver) {
+    document.getElementById('alertBox').innerHTML =
+      'YOU LOST :( <br/> REFRESH TO TRY AGAIN'
+    document.getElementById('alertBox').classList.remove('hide')
   }
 }
 

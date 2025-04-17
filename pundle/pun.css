@@ -54,23 +54,6 @@
   margin-top: 2%;
 }
 
-@media only screen and (max-width: 600px) {
-  .charBox {
-    width: 50px;
-    height: 50px;
-    font-size: x-large;
-  }
-  #gameContainer {
-    height: 400px;
-  }
-}
-
-/* @media only screen and (min-width: 1000px) {
-  .simple-keyboard.myTheme1 {
-    display: none;
-  }
-} */
-
 .simple-keyboard {
   color: black;
   max-width: 500px;
@@ -93,3 +76,50 @@
 .simple-keyboard.myTheme1 {
   background-color: black;
 }
+
+#alertBox {
+  text-align: center;
+  color: rgb(0, 0, 0);
+  padding: 5px 20px;
+  border-radius: 10px;
+  position: fixed;
+  top: 60%;
+  left: 50%;
+  width: auto;
+  transform: translate(-50%, -50%);
+  font-size: 0.5em;
+  font-weight: bold;
+  background-color: #ffffff;
+}
+
+.hide {
+  display: none;
+  padding: 0px;
+  background-color: black;
+}
+
+@media only screen and (min-width: 601px) {
+  #alertBox {
+    font-size: 0.8em;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .charBox {
+    width: 50px;
+    height: 50px;
+    font-size: x-large;
+  }
+  #gameContainer {
+    height: 400px;
+  }
+  .simple-keyboard {
+    width: auto;
+  }
+}
+
+/* @media only screen and (min-width: 1000px) {
+  .simple-keyboard.myTheme1 {
+    display: none;
+  }
+} */
