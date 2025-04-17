@@ -12,7 +12,7 @@
 // all green complete
 // after 6th wrong guess fail
 
-let wordList = ['array']
+let wordList = ['array', 'cache']
 
 let gameState = {
   gameGrid: Array(6)
@@ -27,6 +27,7 @@ function init() {
   const gameContainer = document.getElementById('gameContainer')
   makeGameGrid(gameContainer)
   keyboardpresses()
+  getPrompt()
 }
 
 function makeGameGrid(gameContainer) {
@@ -123,6 +124,19 @@ function onKeyPress(button) {
   updateGameGrid()
 }
 //---------------------------------------------------------------
+
+function getPrompt() {
+  let word = gameState.hiddenWord
+  if (word === 'array') {
+    document.getElementById('punPrompt').innerHTML =
+      "What ended Steve Irwin's programming career?"
+  }
+  if (word === 'cache') {
+    document.getElementById('punPrompt').innerHTML =
+      'What did the robber steal from the server?'
+  }
+}
+
 function checkLetters() {
   for (let i = 0; i < 5; i++) {
     let charBox = document.getElementById(

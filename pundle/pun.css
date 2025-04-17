@@ -54,6 +54,10 @@
   margin-top: 2%;
 }
 
+#punPrompt {
+  text-align: center;
+}
+
 .simple-keyboard {
   display: block;
   justify-self: center;
