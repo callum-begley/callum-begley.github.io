@@ -84,9 +84,9 @@ const keyboard = new Keyboard({
   layout: {
     default: [
       ,
-      'Q W E R T Y U I O P {bksp}',
-      'A S D F G H J K L {enter}',
-      ' Z X C V B N M  ',
+      'Q W E R T Y U I O P',
+      'A S D F G H J K L',
+      '{bksp} Z X C V B N M {enter}',
     ],
   },
   display: {
@@ -105,6 +105,7 @@ function onKeyPress(button) {
       gameState.currentCol = 0
     } else {
       alert('That word is not long enough')
+      return
     }
   } else if (button === '{bksp}') {
     deleteLetter()
