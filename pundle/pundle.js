@@ -141,18 +141,19 @@ function checkLetters() {
 }
 
 function checkTurn(enteredWord) {
-  console.log('yes')
-  console.log(enteredWord)
-
   let won = gameState.hiddenWord === enteredWord
-  console.log(won)
   let gameOver = gameState.currentRow === 5
+
   if (won) {
     document.getElementById('alertBox').innerHTML = 'YOU WON!'
     gameState.currentRow = 5
     gameState.currentCol = 5
     document.getElementById('alertBox').classList.remove('hide')
-  } else if (gameOver) {
+  } else if (won && gameState.currentRow === 5) {
+    console.log(won)
+    document.getElementById('alertBox').innerHTML = 'PHEW, YOU JUST GOT IT!'
+    document.getElementById('alertBox').classList.remove('hide')
+  } else if (gameOver && gameState.hiddenWord !== enteredWord) {
     document.getElementById('alertBox').innerHTML =
       'YOU LOST :( <br/> REFRESH TO TRY AGAIN'
     document.getElementById('alertBox').classList.remove('hide')
