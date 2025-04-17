@@ -55,10 +55,9 @@
 }
 
 .simple-keyboard {
-  color: black;
-  max-width: 500px;
   display: block;
   justify-self: center;
+  max-width: 600px;
   background: black;
   font-size: larger;
   margin-bottom: 100px;
@@ -70,12 +69,17 @@
   justify-content: center;
   align-items: center;
   color: #ffffff;
-  background: rgb(39, 39, 39);
+  background: rgb(30, 30, 30);
   font-weight: bold;
 }
 
 .simple-keyboard.myTheme1 {
   background-color: black;
+}
+
+.simple-keyboard.myTheme1 .hg-button:active {
+  background: rgb(60, 60, 60);
+  color: #ffffff;
 }
 
 #alertBox {
@@ -84,7 +88,7 @@
   padding: 5px 20px;
   border-radius: 10px;
   position: absolute;
-  bottom: 6%;
+  bottom: -18%;
   left: 50%;
   width: auto;
   transform: translate(-50%, -50%);
@@ -113,9 +117,13 @@
   }
   #gameContainer {
     height: 400px;
+    width: auto;
   }
   .simple-keyboard {
     width: auto;
+  }
+  #alertBox {
+    bottom: 7%;
   }
 }
 
