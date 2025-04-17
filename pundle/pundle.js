@@ -56,7 +56,7 @@ function keyboardpresses() {
       let word = getEnteredWord()
       if (isWordValid(word)) {
         checkLetters()
-        checkTurn(word)
+        checkTurn(word.toLowerCase())
         gameState.currentRow++
         gameState.currentCol = 0
       } else {
