@@ -62,3 +62,25 @@
     height: 400px;
   }
 }
+
+.simple-keyboard {
+  color: black;
+  max-width: 500px;
+  display: block;
+  justify-self: center;
+  background: black;
+  background-color: black;
+}
+
+.simple-keyboard.myTheme1 .hg-button {
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  background: rgb(39, 39, 39);
+}
+
+.simple-keyboard.myTheme1 {
+  background-color: black;
+}

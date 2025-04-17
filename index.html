@@ -10,6 +10,10 @@
       href="https://fonts.googleapis.com/css2?family=Rubik+Glitch&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/simple-keyboard@latest/build/css/index.css"
+    />
   </head>
   <body>
     <header>
@@ -43,7 +47,12 @@
       <h2 class="punText">What ended Steve Irwin's programming career?</h2>
       <section class="gameBody">
         <div id="gameContainer"></div>
-        <script src="pundle/pundle.js"></script>
+        <script type="module" src="pundle/pundle.js"></script>
+      </section>
+      <section>
+        <div class="simple-keyboard myTheme1"></div>
+        <script src="https://cdn.jsdelivr.net/npm/simple-keyboard@latest/build/index.js"></script>
+        <script type="module" src="/pundle/keyboard.js"></script>
       </section>
     </div>
   </body>
