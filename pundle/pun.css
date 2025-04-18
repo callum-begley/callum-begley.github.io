@@ -52,10 +52,26 @@
 .punText1 {
   margin: 0%;
   margin-top: 2%;
+  font-family: 'Press Start 2P', system-ui;
+  font-weight: 400;
+  font-style: normal;
 }
 
 #punPrompt {
   text-align: center;
+}
+
+.punblock {
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-bottom: 1%;
+  max-width: fit-content;
+  align-self: center;
+  padding: 10px 20px 10px 20px;
+  border: 2px;
+  border-radius: 10px;
+  border-color: #3a3a3c;
+  border-style: solid;
 }
 
 .simple-keyboard {
@@ -64,7 +80,6 @@
   max-width: 600px;
   background: black;
   font-size: larger;
-  margin-bottom: 100px;
 }
 
 .simple-keyboard.myTheme1 .hg-button {
@@ -92,7 +107,7 @@
   padding: 5px 20px;
   border-radius: 10px;
   position: absolute;
-  bottom: -18%;
+  bottom: -21%;
   left: 50%;
   width: auto;
   transform: translate(-50%, -50%);
@@ -127,7 +142,16 @@
     width: auto;
   }
   #alertBox {
-    bottom: 7%;
+    bottom: 6.5%;
+  }
+  .punblock {
+    border: none;
+    margin: auto;
+    font-size: 0.7em;
+  }
+  .punText1 {
+    font-weight: 600;
+    font-size: 4em;
   }
 }
 
