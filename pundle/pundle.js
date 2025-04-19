@@ -93,6 +93,13 @@ const keyboard = new Keyboard({
       '{bksp} Z X C V B N M {enter}',
     ],
   },
+  buttonTheme: [
+    {
+      class: 'hg-red',
+      buttons: '{bksp} {enter}',
+    },
+  ],
+
   display: {
     '{bksp}': '&larr;',
     '{enter}': 'Enter',
