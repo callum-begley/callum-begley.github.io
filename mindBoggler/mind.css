@@ -1,0 +1,179 @@
+:root {
+  --empty_tile: #3a3a3c;
+  --contains_tile: #b59f3b;
+  --correct_tile: #538d4e;
+}
+
+.gameBody {
+  text-transform: uppercase;
+  font-size: 2rem;
+}
+
+#gameContainer {
+  width: 100%;
+  height: 600px;
+  display: grid;
+  place-items: center;
+}
+
+.gameGrid {
+  display: grid;
+  grid-template-rows: repeat(3, auto);
+  grid-template-columns: repeat(3, auto);
+}
+.charBox {
+  display: grid;
+  place-items: center;
+  width: 100px;
+  height: 100px;
+  border: 3px solid;
+  border-color: white;
+  margin: 4px;
+  color: #ffffff;
+  font-weight: bold;
+  background-color: blue;
+}
+
+/* .empty {
+  background: var(--empty_tile);
+}
+
+.contains {
+  background: var(--contains_tile);
+}
+
+.correct {
+  background: var(--correct_tile);
+} */
+
+.punText {
+  text-align: center;
+  margin: 0;
+  margin-top: 0.5vh;
+}
+
+.punText1 {
+  margin: 0;
+  margin-top: 2%;
+  font-family: 'Press Start 2P', system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.punblock {
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-bottom: 1%;
+  max-width: fit-content;
+  align-self: center;
+  padding: 10px 20px 10px 20px;
+  border: 2px;
+  border-radius: 10px;
+  border-color: #3a3a3c;
+  border-style: solid;
+}
+
+.simple-keyboard {
+  display: block;
+  justify-self: center;
+  max-width: 600px;
+  background: black;
+  font-size: larger;
+}
+
+.simple-keyboard.myTheme1 .hg-button {
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  background: rgb(30, 30, 30);
+  font-weight: bold;
+}
+
+.simple-keyboard.myTheme1 {
+  background-color: black;
+}
+
+.simple-keyboard.myTheme1 .hg-button:active {
+  background: rgb(60, 60, 60);
+  color: #ffffff;
+}
+
+.simple-keyboard.myTheme1 .hg-button.hg-red {
+  background: rgb(44, 54, 66);
+  color: white;
+}
+.simple-keyboard.myTheme1 .hg-button:active.hg-red {
+  background: rgb(60, 60, 60);
+  color: #ffffff;
+}
+
+#alertBox {
+  text-align: center;
+  color: rgb(0, 0, 0);
+  padding: 5px 20px;
+  border-radius: 10px;
+  position: absolute;
+  bottom: -22.5vh;
+  left: 50%;
+  width: auto;
+  transform: translate(-50%, -50%);
+  font-size: 0.5em;
+  font-weight: bold;
+  background-color: #ffffff;
+}
+
+.alert2 {
+  position: relative;
+  top: 50vh;
+  height: 30px;
+}
+.hide {
+  display: none;
+  padding: 0px;
+  background-color: black;
+}
+
+@media only screen and (min-width: 601px) {
+  #alertBox {
+    font-size: 0.8em;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .charBox {
+    width: 50px;
+    height: 50px;
+    font-size: x-large;
+  }
+  #gameContainer {
+    height: 400px;
+    width: auto;
+  }
+  .simple-keyboard {
+    width: auto;
+  }
+  #alertBox {
+    bottom: 9vh;
+  }
+  .punblock {
+    border: none;
+    margin: auto;
+    font-size: 0.7em;
+  }
+  .punText1 {
+    font-weight: 600;
+    font-size: 4em;
+  }
+  .alert2 {
+    height: 20px;
+    top: 44vh;
+  }
+}
+
+/* @media only screen and (min-width: 1000px) {
+  .simple-keyboard.myTheme1 {
+    display: none;
+  }
+} */
