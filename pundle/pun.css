@@ -107,7 +107,7 @@
   padding: 5px 20px;
   border-radius: 10px;
   position: absolute;
-  bottom: -21%;
+  bottom: -21vh;
   left: 50%;
   width: auto;
   transform: translate(-50%, -50%);
@@ -116,6 +116,11 @@
   background-color: #ffffff;
 }
 
+.alert2 {
+  position: relative;
+  top: 52vh;
+  height: 30px;
+}
 .hide {
   display: none;
   padding: 0px;
@@ -142,7 +147,7 @@
     width: auto;
   }
   #alertBox {
-    bottom: 6.5%;
+    bottom: 6.5vh;
   }
   .punblock {
     border: none;

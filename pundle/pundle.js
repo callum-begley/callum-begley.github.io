@@ -166,8 +166,8 @@ function checkTurn(enteredWord) {
   let won = gameState.hiddenWord === enteredWord
   let gameOver = gameState.currentRow === 5
 
-  if (won) {
-    document.getElementById('alertBox').innerHTML = 'YOU WON!'
+  if (won && gameState.currentRow < 5) {
+    document.getElementById('alertBox').innerHTML = 'YOU WON! :)'
     gameState.currentRow = 5
     gameState.currentCol = 5
     document.getElementById('alertBox').classList.remove('hide')
@@ -176,8 +176,7 @@ function checkTurn(enteredWord) {
     document.getElementById('alertBox').innerHTML = 'PHEW, YOU JUST GOT IT!'
     document.getElementById('alertBox').classList.remove('hide')
   } else if (gameOver && gameState.hiddenWord !== enteredWord) {
-    document.getElementById('alertBox').innerHTML =
-      'YOU LOST :( <br/> REFRESH TO TRY AGAIN'
+    document.getElementById('alertBox').innerHTML = 'YOU LOST :('
     document.getElementById('alertBox').classList.remove('hide')
   }
 }
