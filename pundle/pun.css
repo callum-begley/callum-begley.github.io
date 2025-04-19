@@ -46,10 +46,12 @@
 
 .punText {
   text-align: center;
+  margin: 0;
+  margin-top: 0.5vh;
 }
 
 .punText1 {
-  margin: 0%;
+  margin: 0;
   margin-top: 2%;
   font-family: 'Press Start 2P', system-ui;
   font-weight: 400;
@@ -58,6 +60,7 @@
 
 #punPrompt {
   text-align: center;
+  margin-bottom: 0;
 }
 
 .punblock {
@@ -115,7 +118,7 @@
   padding: 5px 20px;
   border-radius: 10px;
   position: absolute;
-  bottom: -21vh;
+  bottom: -22.5vh;
   left: 50%;
   width: auto;
   transform: translate(-50%, -50%);
@@ -126,7 +129,7 @@
 
 .alert2 {
   position: relative;
-  top: 52vh;
+  top: 50vh;
   height: 30px;
 }
 .hide {
@@ -155,7 +158,7 @@
     width: auto;
   }
   #alertBox {
-    bottom: 6.5vh;
+    bottom: 9vh;
   }
   .punblock {
     border: none;
@@ -165,6 +168,10 @@
   .punText1 {
     font-weight: 600;
     font-size: 4em;
+  }
+  .alert2 {
+    height: 20px;
+    top: 44vh;
   }
 }
 
