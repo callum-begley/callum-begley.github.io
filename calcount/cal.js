@@ -105,6 +105,35 @@ const gameItems = [
   },
 ]
 
+// More ideas
+// a pile of dirt
+// a 5 pack of 2min noodles
+// 1 scoop from fish and chip shop
+// a jar of pickles
+// a cubic metre of tofu
+// full english breakfast
+// smoothie / milkshake
+// a bucket of kfc
+// a bowl of guac
+// a mouthful of oil
+// a cup of petrol 1937.5
+// a kg of cheese
+// subway cookies
+// ice cream
+// a bannabox of lettuce
+// a slice of pizza
+// donut
+// a gallon of coke
+// bottle of vodka
+// a tray of mac n cheese
+// a tray of eggs
+// 5 kg of celery 800
+// 10 watermelons
+// a bowl of gravy
+// some amount of mayo
+// blt
+// mums spag bol
+
 function displayCurrent(num) {
   currentNameDiv = document.getElementById('currentNameDiv')
   currentCalDiv = document.getElementById('currentCalDiv')
@@ -146,5 +175,5 @@ function randNum(num) {
 }
 
 init()
-displayCurrent(3)
+displayCurrent(4)
 displayNext()
