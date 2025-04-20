@@ -89,8 +89,3 @@ button {
 button:hover {
   background-color: red;
 }
-
-.vs {
-  position: absolute;
-  font-weight: bolder;
-}

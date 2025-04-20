@@ -79,19 +79,29 @@ function makeNext(gameGrid) {
 
 const gameItems = [
   {
-    name: '100 strawberries',
-    cals: 500,
+    name: '300 strawberries',
+    cals: 1200,
     image: 'calimages/strawberries.png',
   },
   {
     name: 'A Big Mac Combo',
-    cals: 1120,
+    cals: 1320,
     image: 'calimages/bigmac.png',
   },
   {
     name: '1 Gram of Uranium',
     cals: 20000000000,
     image: 'calimages/uranium.png',
+  },
+  {
+    name: 'A Jar Of Peanut Butter',
+    cals: 2228,
+    image: 'calimages/peanutbutter.png',
+  },
+  {
+    name: 'A Whole Rotisserie Chicken',
+    cals: 1295,
+    image: 'calimages/chicken.png',
   },
 ]
 
@@ -136,5 +146,5 @@ function randNum(num) {
 }
 
 init()
-displayCurrent(2)
+displayCurrent(3)
 displayNext()
