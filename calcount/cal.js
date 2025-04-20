@@ -114,13 +114,21 @@ function displayNext() {
   nextNameDiv = document.getElementById('nextNameDiv')
   nextCalDiv = document.getElementById('nextCalDiv')
   nextNameDiv.textContent = gameItems[num].name + '?'
-  nextCalDiv.textContent = 'Higher or Lower?'
   nextImgDiv = document.getElementById('nextImgDiv')
   nextImg = document.createElement('img')
   nextImg.id = 'nextImg'
   nextImg.className = 'calImg'
   nextImg.src = gameItems[num].image
   nextImgDiv.appendChild(nextImg)
+  hButton = document.createElement('button')
+  hButton.textContent = 'Higher'
+  lButton = document.createElement('button')
+  lButton.textContent = 'Lower'
+  or = document.createElement('span')
+  or.textContent = ' or '
+  nextCalDiv.appendChild(hButton)
+  nextCalDiv.appendChild(or)
+  nextCalDiv.appendChild(lButton)
 }
 
 function randNum(num) {
