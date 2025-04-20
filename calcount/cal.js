@@ -81,20 +81,32 @@ const gameItems = [
   {
     name: '100 strawberries',
     cals: 500,
-    image: '/images/strawberries.png',
+    image: 'calimages/strawberries.png',
   },
   {
     name: 'A Big Mac Combo',
-    cals: 850,
-    image: '/images/bigmac.png',
+    cals: 1120,
+    image: 'calimages/bigmac.png',
+  },
+  {
+    name: '1 Gram of Uranium',
+    cals: 20000000000,
+    image: 'calimages/uranium.png',
   },
 ]
 
 function displayCurrent(num) {
   currentNameDiv = document.getElementById('currentNameDiv')
   currentCalDiv = document.getElementById('currentCalDiv')
+  currentImgDiv = document.getElementById('currentImgDiv')
   currentNameDiv.textContent = gameItems[num].name + ': '
-  currentCalDiv.textContent = 'Calories: ' + gameItems[num].cals
+  currentCalDiv.textContent =
+    'Calories: ' + Number(gameItems[num].cals).toLocaleString()
+  currentImg = document.createElement('img')
+  currentImg.id = 'currentImg'
+  currentImg.className = 'calImg'
+  currentImg.src = gameItems[num].image
+  currentImgDiv.appendChild(currentImg)
 }
 
 function displayNext() {
@@ -103,6 +115,12 @@ function displayNext() {
   nextCalDiv = document.getElementById('nextCalDiv')
   nextNameDiv.textContent = gameItems[num].name + '?'
   nextCalDiv.textContent = 'Higher or Lower?'
+  nextImgDiv = document.getElementById('nextImgDiv')
+  nextImg = document.createElement('img')
+  nextImg.id = 'nextImg'
+  nextImg.className = 'calImg'
+  nextImg.src = gameItems[num].image
+  nextImgDiv.appendChild(nextImg)
 }
 
 function randNum(num) {
@@ -110,5 +128,5 @@ function randNum(num) {
 }
 
 init()
-displayCurrent(0)
+displayCurrent(2)
 displayNext()
