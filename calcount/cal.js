@@ -2,6 +2,8 @@ function init() {
   const gameContainer = document.getElementById('calGameContainer')
   const gameGrid = document.getElementById('gameGrid')
   makeGameGrid(gameContainer)
+  displayCurrent(randNum(gameItems.length))
+  currentScoreUpdate()
 }
 
 function makeGameGrid(gameContainer) {
@@ -22,6 +24,11 @@ function makeCurrent(gameGrid) {
 }
 
 function makeCurrentDivs(currentBox) {
+  const currentScoreDiv = document.createElement('div')
+  currentScoreDiv.id = 'currentScoreDiv'
+  currentScoreDiv.className = 'score'
+  currentBox.appendChild(currentScoreDiv)
+
   const currentImgDiv = document.createElement('div')
   currentImgDiv.className = 'imgDiv'
   currentImgDiv.id = 'currentImgDiv'
@@ -37,7 +44,7 @@ function makeCurrentDivs(currentBox) {
   currentCalDiv.id = 'currentCalDiv'
   currentBox.appendChild(currentCalDiv)
 
-  return currentImgDiv, currentNameDiv, currentCalDiv
+  return currentScoreDiv, currentImgDiv, currentNameDiv, currentCalDiv
 }
 
 function makeNext(gameGrid) {
@@ -50,6 +57,11 @@ function makeNext(gameGrid) {
 }
 
 function makeNextDivs(nextBox) {
+  const bestStreakDiv = document.createElement('div')
+  bestStreakDiv.id = 'bestStreakDiv'
+  bestStreakDiv.className = 'score'
+  nextBox.appendChild(bestStreakDiv)
+
   const nextImgDiv = document.createElement('div')
   nextImgDiv.className = 'imgDiv'
   nextImgDiv.id = 'nextImgDiv'
@@ -79,7 +91,7 @@ function makeNext(gameGrid) {
 
 const gameItems = [
   {
-    name: '300 strawberries',
+    name: '300 Strawberries',
     cals: 1200,
     image: 'calimages/strawberries.png',
   },
@@ -133,25 +145,47 @@ const gameItems = [
 // some amount of mayo
 // blt
 // mums spag bol
+// a pack of flour
 
 function displayCurrent(num) {
+  // clear space
+  clearBox('currentNameDiv')
+  clearBox('currentCalDiv')
+  clearBox('currentImgDiv')
+
   currentNameDiv = document.getElementById('currentNameDiv')
   currentCalDiv = document.getElementById('currentCalDiv')
-  currentImgDiv = document.getElementById('currentImgDiv')
-  currentNameDiv.textContent = gameItems[num].name + ': '
+  currentNameDiv.textContent = gameItems[num].name
   currentCalDiv.textContent =
     'Calories: ' + Number(gameItems[num].cals).toLocaleString()
+
+  currentImgDiv = document.getElementById('currentImgDiv')
   currentImg = document.createElement('img')
   currentImg.id = 'currentImg'
   currentImg.className = 'calImg'
   currentImg.src = gameItems[num].image
   currentImgDiv.appendChild(currentImg)
+
+  currentScoreDiv = document.getElementById('currentScoreDiv')
+  currentScoreDiv.textContent = 'Score: ' + currentScore
+
+  displayNext(num)
 }
 
-function displayNext() {
+function displayNext(currentNum) {
   num = randNum(gameItems.length)
+  if (num === currentNum && currentNum < gameItems.length - 1) {
+    num++
+  } else if (num === currentNum) {
+    num--
+  }
+  // clear space
+  clearBox('nextNameDiv')
+  clearBox('nextCalDiv')
+  clearBox('nextImgDiv')
+
+  //
   nextNameDiv = document.getElementById('nextNameDiv')
-  nextCalDiv = document.getElementById('nextCalDiv')
   nextNameDiv.textContent = gameItems[num].name + '?'
   nextImgDiv = document.getElementById('nextImgDiv')
   nextImg = document.createElement('img')
@@ -159,6 +193,9 @@ function displayNext() {
   nextImg.className = 'calImg'
   nextImg.src = gameItems[num].image
   nextImgDiv.appendChild(nextImg)
+
+  //Buttons
+  nextCalDiv = document.getElementById('nextCalDiv')
   hButton = document.createElement('button')
   hButton.textContent = 'Higher'
   lButton = document.createElement('button')
@@ -168,6 +205,67 @@ function displayNext() {
   nextCalDiv.appendChild(hButton)
   nextCalDiv.appendChild(or)
   nextCalDiv.appendChild(lButton)
+
+  bestStreakDiv = document.getElementById('bestStreakDiv')
+  bestStreakDiv.textContent = 'Best Streak: ' + bestStreak
+
+  gameHandler(lButton, hButton, currentNum, num)
+}
+
+function gameHandler(lButton, hButton, currentNum, nextNum) {
+  lButton.addEventListener('click', function () {
+    if (gameItems[currentNum].cals >= gameItems[nextNum].cals) {
+      //correct
+      displayCurrent(nextNum)
+      currentScoreUpdate(false)
+    } else {
+      currentScoreUpdate(true)
+    }
+  })
+  hButton.addEventListener('click', function () {
+    if (gameItems[currentNum].cals <= gameItems[nextNum].cals) {
+      //correct
+      displayCurrent(nextNum)
+      currentScoreUpdate(false)
+    } else {
+      currentScoreUpdate(true)
+    }
+  })
+}
+
+//let gameoverState = false
+
+// function gameOver() {
+//   gameoverState = true
+//   currentScoreUpdate(gameoverState)
+//   currentScoreUpdate(gameoverState)
+// }
+
+let currentScore = 0
+let bestStreak = 0
+
+function currentScoreUpdate(gameoverState) {
+  currentScoreDiv = document.getElementById('currentScoreDiv')
+  bestStreakDiv = document.getElementById('bestStreakDiv')
+
+  console.log(gameoverState)
+  if (gameoverState === false) {
+    currentScore++
+    console.log('correct')
+    currentScoreDiv.textContent = 'Score: ' + currentScore
+  } else if (gameoverState === true) {
+    if (bestStreak < currentScore) {
+      bestStreak = currentScore
+      bestStreakDiv.textContent = 'Best Streak: ' + bestStreak
+    }
+    currentScore = 0
+    console.log('lose')
+    currentScoreDiv.textContent = 'Score: ' + currentScore
+  }
+}
+
+function clearBox(elementID) {
+  document.getElementById(elementID).innerHTML = ''
 }
 
 function randNum(num) {
@@ -175,5 +273,3 @@ function randNum(num) {
 }
 
 init()
-displayCurrent(4)
-displayNext()
