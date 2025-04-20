@@ -1,3 +1,11 @@
+// to do:
+//
+// more items
+// highscore
+// loss alert
+// styling
+// more items
+
 function init() {
   const gameContainer = document.getElementById('calGameContainer')
   const gameGrid = document.getElementById('gameGrid')
@@ -263,6 +271,17 @@ function currentScoreUpdate(gameoverState) {
     currentScoreDiv.textContent = 'Score: ' + currentScore
   }
 }
+
+// high score:
+// This is how you can store and retrieve values from localStorage:
+
+// // Store
+
+// localStorage.setItem("highscore", "0");
+
+// // Retrieve
+
+// var score = localStorage.getItem("highscore");
 
 function clearBox(elementID) {
   document.getElementById(elementID).innerHTML = ''
