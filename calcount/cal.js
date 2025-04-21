@@ -1,16 +1,15 @@
 // to do:
 //
 // more items
-// highscore
-// loss alert
+// loss alert - show cals
 // styling
-// more items
 
 function init() {
   const gameContainer = document.getElementById('calGameContainer')
-  const gameGrid = document.getElementById('gameGrid')
   makeGameGrid(gameContainer)
   displayCurrent(randNum(gameItems.length))
+  document.getElementById('bestStreakDiv').textContent =
+    'Best Streak: ' + (bestStreak || 0)
   currentScoreUpdate()
 }
 
@@ -161,20 +160,16 @@ function displayCurrent(num) {
   clearBox('currentCalDiv')
   clearBox('currentImgDiv')
 
-  currentNameDiv = document.getElementById('currentNameDiv')
-  currentCalDiv = document.getElementById('currentCalDiv')
   currentNameDiv.textContent = gameItems[num].name
   currentCalDiv.textContent =
     'Calories: ' + Number(gameItems[num].cals).toLocaleString()
 
-  currentImgDiv = document.getElementById('currentImgDiv')
   currentImg = document.createElement('img')
   currentImg.id = 'currentImg'
   currentImg.className = 'calImg'
   currentImg.src = gameItems[num].image
   currentImgDiv.appendChild(currentImg)
 
-  currentScoreDiv = document.getElementById('currentScoreDiv')
   currentScoreDiv.textContent = 'Score: ' + currentScore
 
   displayNext(num)
@@ -192,10 +187,7 @@ function displayNext(currentNum) {
   clearBox('nextCalDiv')
   clearBox('nextImgDiv')
 
-  //
-  nextNameDiv = document.getElementById('nextNameDiv')
   nextNameDiv.textContent = gameItems[num].name + '?'
-  nextImgDiv = document.getElementById('nextImgDiv')
   nextImg = document.createElement('img')
   nextImg.id = 'nextImg'
   nextImg.className = 'calImg'
@@ -203,7 +195,6 @@ function displayNext(currentNum) {
   nextImgDiv.appendChild(nextImg)
 
   //Buttons
-  nextCalDiv = document.getElementById('nextCalDiv')
   hButton = document.createElement('button')
   hButton.textContent = 'Higher'
   lButton = document.createElement('button')
@@ -213,9 +204,6 @@ function displayNext(currentNum) {
   nextCalDiv.appendChild(hButton)
   nextCalDiv.appendChild(or)
   nextCalDiv.appendChild(lButton)
-
-  bestStreakDiv = document.getElementById('bestStreakDiv')
-  bestStreakDiv.textContent = 'Best Streak: ' + bestStreak
 
   gameHandler(lButton, hButton, currentNum, num)
 }
@@ -241,48 +229,24 @@ function gameHandler(lButton, hButton, currentNum, nextNum) {
   })
 }
 
-//let gameoverState = false
-
-// function gameOver() {
-//   gameoverState = true
-//   currentScoreUpdate(gameoverState)
-//   currentScoreUpdate(gameoverState)
-// }
-
 let currentScore = 0
-let bestStreak = 0
+let bestStreak = localStorage.getItem('highscore')
 
 function currentScoreUpdate(gameoverState) {
-  currentScoreDiv = document.getElementById('currentScoreDiv')
-  bestStreakDiv = document.getElementById('bestStreakDiv')
-
-  console.log(gameoverState)
   if (gameoverState === false) {
     currentScore++
-    console.log('correct')
     currentScoreDiv.textContent = 'Score: ' + currentScore
   } else if (gameoverState === true) {
     if (bestStreak < currentScore) {
-      bestStreak = currentScore
-      bestStreakDiv.textContent = 'Best Streak: ' + bestStreak
+      localStorage.setItem('highscore', currentScore)
+      bestStreakDiv.textContent = 'Best Streak: ' + currentScore
     }
     currentScore = 0
-    console.log('lose')
     currentScoreDiv.textContent = 'Score: ' + currentScore
   }
 }
 
-// high score:
-// This is how you can store and retrieve values from localStorage:
-
-// // Store
-
-// localStorage.setItem("highscore", "0");
-
-// // Retrieve
-
-// var score = localStorage.getItem("highscore");
-
+//-----UTIL-----//
 function clearBox(elementID) {
   document.getElementById(elementID).innerHTML = ''
 }
