@@ -123,7 +123,7 @@ const gameItems = [
     image: 'calimages/chicken.png',
   },
   {
-    name: 'A Wheelbarrow of Dirt',
+    name: 'A Pile of Dirt',
     cals: 0,
     image: 'calimages/dirt.png',
   },
@@ -172,19 +172,19 @@ const gameItems = [
     cals: 1937,
     image: 'calimages/petrol.png',
   },
+  {
+    name: 'A Can of Cat Food',
+    cals: 380,
+    image: 'calimages/catfood.png',
+  },
+  {
+    name: 'A Steak and Cheese Pie',
+    cals: 420,
+    image: 'calimages/steakpie.png',
+  },
 ]
 
 // More ideas
-// a ton of dirt 0
-// a 5 pack of 2min noodles
-// 1 scoop from fish and chip shop
-// a jar of pickles
-// a cubic metre of tofu
-// full english breakfast
-// smoothie / milkshake
-// a bucket of kfc
-// a bowl of guac
-// a cup of petrol 1937.5
 
 // a mouthful of oil
 // a kg of cheese
@@ -204,10 +204,9 @@ const gameItems = [
 // blt
 // mums spag bol
 // a pack of flour
-// can of cat food
 // tin of baby formula
-// steak and cheese pie
 // 10 packets of gravy
+// jumbo sausage bigboy
 
 function displayCurrent(num) {
   // clear space
