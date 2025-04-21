@@ -57,6 +57,11 @@ body {
   height: 400px;
   align-content: center;
 }
+
+img {
+  filter: drop-shadow(0 0 2rem rgba(253, 234, 125, 0.726));
+}
+
 .calImg {
   max-width: fit-content;
   width: 300px;
