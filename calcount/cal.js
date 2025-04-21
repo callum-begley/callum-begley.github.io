@@ -122,10 +122,60 @@ const gameItems = [
     cals: 1295,
     image: 'calimages/chicken.png',
   },
+  {
+    name: 'A Wheelbarrow of Dirt',
+    cals: 0,
+    image: 'calimages/dirt.png',
+  },
+  {
+    name: 'A 5 Pack of Mi Goreng',
+    cals: 1900,
+    image: 'calimages/noodles.png',
+  },
+  {
+    name: '2 Scoops of Chips',
+    cals: 1400,
+    image: 'calimages/chips.png',
+  },
+  {
+    name: '10 Jars of Pickles',
+    cals: 1000,
+    image: 'calimages/pickles.png',
+  },
+  {
+    name: '1kg of Tofu',
+    cals: 760,
+    image: 'calimages/tofu.png',
+  },
+  {
+    name: 'A Full English Breakfast',
+    cals: 800,
+    image: 'calimages/fullenglish.png',
+  },
+  {
+    name: 'A Litre of Chocolate Milkshake',
+    cals: 1170,
+    image: 'calimages/milkshake.png',
+  },
+  {
+    name: 'A 6 Piece Bucket of KFC',
+    cals: 1410,
+    image: 'calimages/kfc.png',
+  },
+  {
+    name: 'A Bowl of Guac',
+    cals: 700,
+    image: 'calimages/guacamole.png',
+  },
+  {
+    name: 'A Cup of Petrol',
+    cals: 1937,
+    image: 'calimages/petrol.png',
+  },
 ]
 
 // More ideas
-// a pile of dirt
+// a ton of dirt 0
 // a 5 pack of 2min noodles
 // 1 scoop from fish and chip shop
 // a jar of pickles
@@ -134,8 +184,9 @@ const gameItems = [
 // smoothie / milkshake
 // a bucket of kfc
 // a bowl of guac
-// a mouthful of oil
 // a cup of petrol 1937.5
+
+// a mouthful of oil
 // a kg of cheese
 // subway cookies
 // ice cream
@@ -153,6 +204,10 @@ const gameItems = [
 // blt
 // mums spag bol
 // a pack of flour
+// can of cat food
+// tin of baby formula
+// steak and cheese pie
+// 10 packets of gravy
 
 function displayCurrent(num) {
   // clear space
