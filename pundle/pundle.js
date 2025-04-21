@@ -3,82 +3,8 @@
 // Like wordle but funnier
 // funnyness subject to personal sense of humor and maturity
 
-// plot squares on a page
-// call for user input
-// user input to string, string to array
-// test array against answer, exact match goes green
-// test array for match in loop goes orange
-// move down line and request input
-// all green complete
-// after 6th wrong guess fail
-
 let wordList = ['array', 'cache', 'buggy', 'nerds']
-
-let gameState = {
-  gameGrid: Array(6)
-    .fill()
-    .map(() => Array(5).fill('')),
-  currentRow: 0,
-  currentCol: 0,
-  hiddenWord: wordList[Math.floor(Math.random() * wordList.length)],
-}
-
-function init() {
-  const gameContainer = document.getElementById('gameContainer')
-  makeGameGrid(gameContainer)
-  keyboardpresses()
-  getPrompt()
-}
-
-function makeGameGrid(gameContainer) {
-  const gameGrid = document.createElement('div')
-  gameGrid.className = 'gameGrid'
-  for (let i = 0; i < 6; i++) {
-    for (let o = 0; o < 5; o++) {
-      makeBox(gameGrid, i, o)
-    }
-  }
-  gameContainer.appendChild(gameGrid)
-}
-
-function makeBox(gameGrid, row, col, letter = '') {
-  const charBox = document.createElement('div')
-  charBox.className = 'charBox'
-  charBox.id = 'charBox.' + row + '' + col
-  charBox.textContent = letter
-  gameGrid.appendChild(charBox)
-  return charBox
-}
-
-function keyboardpresses() {
-  document.body.onkeydown = (e) => {
-    let key = e.key
-    if (key === 'Enter') {
-      let word = getEnteredWord()
-      if (isWordValid(word)) {
-        checkLetters()
-        checkTurn(word.toLowerCase())
-        gameState.currentRow++
-        gameState.currentCol = 0
-      } else {
-        document.getElementById('alertBox').innerHTML = 'MUST BE 5 LETTERS'
-        document.getElementById('alertBox').classList.remove('hide')
-      }
-    }
-    if (key === 'Backspace') {
-      deleteLetter()
-      document.getElementById('alertBox').classList.add('hide')
-    }
-    if (isAlpha(key)) {
-      addLetter(key)
-      document.getElementById('alertBox').classList.add('hide')
-    }
-    updateGameGrid()
-  }
-}
-
-//-------------------------------------------------
-
+let gameState = {}
 const Keyboard = window.SimpleKeyboard.default
 
 const keyboard = new Keyboard({
@@ -106,6 +32,83 @@ const keyboard = new Keyboard({
   },
 })
 
+function startGame() {
+  gameState = {
+    gameGrid: Array(6)
+      .fill()
+      .map(() => Array(5).fill('')),
+    currentRow: 0,
+    currentCol: 0,
+    hiddenWord: wordList[Math.floor(Math.random() * wordList.length)],
+  }
+}
+
+function init() {
+  const gameContainer = document.getElementById('gameContainer')
+  makeGameGrid(gameContainer)
+  keyboardpresses()
+  startGame()
+  getPrompt()
+}
+
+function makeGameGrid(gameContainer) {
+  const gameGrid = document.createElement('div')
+  gameGrid.className = 'gameGrid'
+
+  for (let i = 0; i < 6; i++) {
+    for (let o = 0; o < 5; o++) {
+      makeBox(gameGrid, i, o)
+    }
+  }
+  gameContainer.appendChild(gameGrid)
+  makeAlertBox()
+}
+
+function makeAlertBox() {
+  const alertBox = document.createElement('div')
+  alertBox.className = 'hide alert2'
+  alertBox.id = 'alertBox'
+  alertBox.textContent = ''
+  gameContainer.appendChild(alertBox)
+}
+
+function makeBox(gameGrid, row, col, letter = '') {
+  const charBox = document.createElement('div')
+  charBox.className = 'charBox'
+  charBox.id = 'charBox.' + row + '' + col
+  charBox.textContent = letter
+  gameGrid.appendChild(charBox)
+  return charBox
+}
+
+function keyboardpresses() {
+  let alertBox = document.getElementById('alertBox')
+  document.body.onkeydown = (e) => {
+    let key = e.key
+    if (key === 'Enter') {
+      let word = getEnteredWord()
+      if (isWordValid(word)) {
+        checkLetters()
+        checkTurn(word.toLowerCase())
+        gameState.currentRow++
+        gameState.currentCol = 0
+      } else {
+        alertBox.innerHTML = 'MUST BE 5 LETTERS'
+        alertBox.classList.remove('hide')
+      }
+    }
+    if (key === 'Backspace') {
+      deleteLetter()
+      alertBox.classList.add('hide')
+    }
+    if (isAlpha(key)) {
+      addLetter(key)
+      alertBox.classList.add('hide')
+    }
+    updateGameGrid()
+  }
+}
+
 function onKeyPress(button) {
   if (button === '{enter}') {
     let word = getEnteredWord()
@@ -130,7 +133,6 @@ function onKeyPress(button) {
   }
   updateGameGrid()
 }
-//---------------------------------------------------------------
 
 function getPrompt() {
   let word = gameState.hiddenWord
@@ -172,19 +174,23 @@ function checkLetters() {
 function checkTurn(enteredWord) {
   let won = gameState.hiddenWord === enteredWord
   let gameOver = gameState.currentRow === 5
+  let alertBox = document.getElementById('alertBox')
 
   if (won && gameState.currentRow < 5) {
-    document.getElementById('alertBox').innerHTML = 'YOU WON! :)'
+    alertBox.innerHTML = 'YOU WON! :)<br/>'
     gameState.currentRow = 5
     gameState.currentCol = 5
-    document.getElementById('alertBox').classList.remove('hide')
+    alertBox.classList.remove('hide')
+    tryAgainButton(alertBox)
   } else if (won && gameState.currentRow === 5) {
-    console.log(won)
-    document.getElementById('alertBox').innerHTML = 'PHEW, YOU JUST GOT IT!'
-    document.getElementById('alertBox').classList.remove('hide')
+    alertBox.innerHTML = 'PHEW, YOU JUST GOT IT!<br/>'
+    alertBox.classList.remove('hide')
+    tryAgainButton(alertBox)
   } else if (gameOver && gameState.hiddenWord !== enteredWord) {
-    document.getElementById('alertBox').innerHTML = 'YOU LOST :('
-    document.getElementById('alertBox').classList.remove('hide')
+    alertBox.innerHTML =
+      'YOU LOST :(<br/>THE ANSWER WAS: ' + gameState.hiddenWord + '<br/>'
+    alertBox.classList.remove('hide')
+    tryAgainButton(alertBox)
   }
 }
 
@@ -223,6 +229,33 @@ function addLetter(key) {
 
 function isAlpha(key) {
   return key.length === 1 && key.match(/[a-z]/i)
+}
+
+function tryAgainButton(alertBox) {
+  const button = document.createElement('button')
+  button.className = 'resetButton'
+  button.textContent = 'Try Another?'
+  alertBox.appendChild(button)
+  tryAgain(button)
+  return button
+}
+
+function tryAgain(button) {
+  button.addEventListener('click', function () {
+    for (let i = 0; i < gameState.gameGrid.length; i++) {
+      for (let o = 0; o < gameState.gameGrid[i].length; o++) {
+        let charBox = document.getElementById('charBox.' + i + '' + o)
+        charBox.classList.remove('correct', 'contains', 'empty')
+      }
+    }
+    document.getElementById('alertBox').innerHTML = ''
+    document.getElementById('alertBox').classList.add('hide')
+    startGame()
+    updateGameGrid()
+    getPrompt()
+  })
+
+  return button
 }
 
 init()
