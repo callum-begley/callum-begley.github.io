@@ -293,7 +293,7 @@ function gameHandler(lButton, hButton, currentNum, nextNum) {
 }
 
 let currentScore = 0
-let bestStreak = localStorage.getItem('highscore')
+let bestStreak = localStorage.getItem('calHighscore')
 
 function currentScoreUpdate(gameoverState, nextNum) {
   if (gameoverState === false) {
@@ -301,7 +301,7 @@ function currentScoreUpdate(gameoverState, nextNum) {
     currentScoreDiv.textContent = 'Score: ' + currentScore
   } else if (gameoverState === true) {
     if (bestStreak < currentScore) {
-      localStorage.setItem('highscore', currentScore)
+      localStorage.setItem('calHighscore', currentScore)
       bestStreakDiv.textContent = 'Best Streak: ' + currentScore
     }
     //ALERT

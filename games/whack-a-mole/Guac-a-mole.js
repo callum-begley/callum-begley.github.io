@@ -53,7 +53,7 @@ function scoreKeeper() {
 const timeButton = document.getElementById('timeButton')
 timeButton.onclick = timeTrial
 const highScoreDiv = document.getElementById('highScore')
-let highScore = localStorage.getItem('highscore')
+let highScore = localStorage.getItem('avoHighScore')
 highScoreDiv.textContent = 'HighScore: ' + (highScore || 0)
 
 function timeTrial() {
@@ -71,7 +71,7 @@ function timeTrial() {
       timeButton.innerHTML = 'You Got ' + timeScore + '<br/>Try Again?'
       //highscore = score
       if (highScore < timeScore) {
-        localStorage.setItem('highscore', timeScore)
+        localStorage.setItem('avoHighScore', timeScore)
         highScoreDiv.textContent = 'HighScore: ' + timeScore
       }
     } else {
