@@ -1,0 +1,177 @@
+body {
+  font-family: Sans-serif;
+  background-color: LightPink;
+  font-weight: bold;
+  align-content: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+h1 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 3em;
+  text-align: center;
+  font-family: 'Rye', cursive;
+  font-weight: bold;
+}
+h2 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 2em;
+  text-align: center;
+}
+
+table {
+  margin-right: center;
+  margin-left: center;
+  margin: 0 auto;
+}
+
+.container {
+  text-align: center;
+}
+
+.moleButton {
+  padding: 0px 10px;
+  background-color: rgba(85, 107, 47, 0);
+  backdrop-filter: blur(3px);
+  font-size: large;
+  font-weight: bolder;
+  border: solid;
+  border-radius: 20px;
+  height: 70px;
+  align-items: center;
+}
+
+.mole {
+  position: absolute;
+  width: 75px;
+  height: 75px;
+  transform: translate(-0%, -50%);
+}
+
+.mallet {
+  cursor: url('./the-mallet.png') 20 50, auto;
+  justify-items: center;
+}
+
+.moleBody {
+  background-color: green;
+  background-image: url('./moleBackground.jpg');
+  background-size: 100% auto;
+  margin: 0;
+}
+
+td {
+  background-color: rgb(68, 34, 11);
+  height: 75px;
+  width: 75px;
+  border-radius: 50%;
+  border: 2px solid rgb(17, 8, 1);
+  filter: drop-shadow(15px 0px 10px rgb(119, 66, 31));
+  /* margin: 20px; */
+}
+
+.score {
+  text-align: center;
+  font-size: 2em;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-style: solid;
+  border-radius: 10px;
+  backdrop-filter: blur(3px);
+  display: inline-block;
+  justify-content: space-between;
+  width: 250px;
+}
+#score {
+  display: inline-block;
+}
+
+.highScore {
+  text-align: center;
+  font-size: 2em;
+  padding: 10px;
+  margin-top: 20px;
+  margin-bottom: 0px;
+  display: block;
+  justify-self: center;
+  width: 350px;
+  border-style: solid;
+  border-radius: 10px;
+  backdrop-filter: blur(3px);
+}
+
+.avo {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  transform: translate(-12%, -56%);
+  filter: drop-shadow(10px 10px 10px rgb(0, 0, 0));
+}
+
+.avoScore {
+  text-align: center;
+  font-size: 2em;
+  padding: 10px;
+  margin-bottom: 20px;
+  /* background-color: green; */
+  border-style: solid;
+  border-radius: 10px;
+  backdrop-filter: blur(3px);
+  display: inline-block;
+  justify-content: space-between;
+  width: 350px;
+}
+
+.avoHighScore {
+  text-align: center;
+  font-size: 2em;
+  padding: 10px;
+  margin-top: 20px;
+  margin-bottom: 0px;
+  display: block;
+  justify-self: center;
+  width: 350px;
+  border-style: solid;
+  border-radius: 10px;
+  backdrop-filter: blur(3px);
+}
+
+.avoBody {
+  background-color: rgb(255, 255, 255);
+  background-image: url('./wood.jpg');
+  background-size: 100% auto;
+  margin: 0;
+}
+
+.avoBody td {
+  background-color: rgba(255, 255, 255, 0);
+  background-image: url('./toast.png');
+  background-size: 100% auto;
+  height: 75px;
+  width: 75px;
+  border-radius: 0%;
+  border: 0px solid rgb(17, 8, 1);
+  filter: drop-shadow(10px 10px 10px rgb(0, 0, 0));
+  /* margin: 20px; */
+}
+
+.avoBody button {
+  padding: 0px 10px;
+  background-color: rgb(160, 194, 10);
+  font-size: large;
+  font-weight: bolder;
+  border: solid;
+  border-radius: 20px;
+  height: 60px;
+  align-items: center;
+}
+.gameBack {
+  text-align: center;
+  color: white;
+  background-color: black;
+  padding: 10px;
+  border-radius: 10px;
+}

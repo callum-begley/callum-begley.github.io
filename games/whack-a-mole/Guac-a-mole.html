@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=0, maximum-scale=1, minimum-scale=1"
+    />
+    <title>JAVASCRIPT CARNIVAL: Whack-a-Mole!</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Rye&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../favicon/favicon-16x16.png"
+    />
+    <link rel="stylesheet" href="/games/whack-a-mole/mole.css" />
+  </head>
+  <body class="avoBody">
+    
+    <div class="mallet">
+      <h1>Guac-a-Mole!</h1>
+      <div>
+        <span class="avoScore">Smashed Avos: <span></span><span id="score"></span>
+      </div>
+      <table>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
+     
+    <br/>
+      <div><button id="timeButton">10s Time Trial</button></div>
+    
+    <div><h2 class="avoHighScore" id="highScore">HighScore: </h2>></div>
+    </div>
+    <a class="gameBack" href="/index.html">&larr; Back to homepage</a>
+    <script type="module" src="Guac-a-mole.js"></script>
+    <script type="module" src="random-number.js"></script>
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"
+    ></script>
+  </body>
+</html>

@@ -19,6 +19,14 @@ function makeGameGrid(gameContainer) {
   gameContainer.appendChild(gameGrid)
   makeCurrent(gameGrid)
   makeNext(gameGrid)
+  makeAlertBox(gameGrid)
+}
+function makeAlertBox() {
+  const alertBox = document.createElement('div')
+  alertBox.className = 'hide'
+  alertBox.id = 'alertBox'
+  alertBox.textContent = ''
+  gameGrid.appendChild(alertBox)
 }
 
 function makeCurrent(gameGrid) {
@@ -263,22 +271,23 @@ function displayNext(currentNum) {
 }
 
 function gameHandler(lButton, hButton, currentNum, nextNum) {
+  alertBox.classList.add('hide')
   lButton.addEventListener('click', function () {
     if (gameItems[currentNum].cals >= gameItems[nextNum].cals) {
       //correct
       displayCurrent(nextNum)
-      currentScoreUpdate(false)
+      currentScoreUpdate(false, nextNum)
     } else {
-      currentScoreUpdate(true)
+      currentScoreUpdate(true, nextNum)
     }
   })
   hButton.addEventListener('click', function () {
     if (gameItems[currentNum].cals <= gameItems[nextNum].cals) {
       //correct
       displayCurrent(nextNum)
-      currentScoreUpdate(false)
+      currentScoreUpdate(false, nextNum)
     } else {
-      currentScoreUpdate(true)
+      currentScoreUpdate(true, nextNum)
     }
   })
 }
@@ -286,7 +295,7 @@ function gameHandler(lButton, hButton, currentNum, nextNum) {
 let currentScore = 0
 let bestStreak = localStorage.getItem('highscore')
 
-function currentScoreUpdate(gameoverState) {
+function currentScoreUpdate(gameoverState, nextNum) {
   if (gameoverState === false) {
     currentScore++
     currentScoreDiv.textContent = 'Score: ' + currentScore
@@ -295,6 +304,17 @@ function currentScoreUpdate(gameoverState) {
       localStorage.setItem('highscore', currentScore)
       bestStreakDiv.textContent = 'Best Streak: ' + currentScore
     }
+    //ALERT
+    let alertBox = document.getElementById('alertBox')
+    alertBox.innerHTML =
+      'Streak Lost :(<br/><br/>' +
+      gameItems[nextNum].name +
+      ' is ' +
+      gameItems[nextNum].cals +
+      ' Calories' +
+      '<br/><br/>Keep going to try beat your streak'
+    alertBox.classList.remove('hide')
+    //
     currentScore = 0
     currentScoreDiv.textContent = 'Score: ' + currentScore
   }

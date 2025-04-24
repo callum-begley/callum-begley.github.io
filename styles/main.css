@@ -216,6 +216,24 @@ code {
   margin-top: 10px;
 }
 
+#gamesBlock {
+  margin: 1%;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: rgba(25, 25, 25, 0.5);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.gameImg {
+  width: auto;
+  height: 400px;
+  margin: 5px;
+  object-fit: cover;
+}
+
 @media only screen and (max-width: 680px) {
   h1 {
     font-size: 2em;

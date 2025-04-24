@@ -6,14 +6,26 @@
 
 h1 {
   margin: 0;
-  margin-top: 4vh;
-  font-family: 'Press Start 2P', system-ui;
-  font-size: 3rem;
+  font-family: 'Bangers', system-ui;
+  font-size: 4rem;
+  font-weight: 400;
   text-align: center;
+  padding: 10px;
+  filter: drop-shadow(10px 10px 5px rgb(0, 0, 0));
+}
+h2 {
+  margin: 0;
+  font-family: system-ui;
+  font-size: 1.5rem;
+  text-align: center;
+  padding: 10px;
+  filter: drop-shadow(10px 10px 5px rgb(0, 0, 0));
 }
 body {
   color: white;
   background: black;
+  background-image: url('./calimages/higherlowerbkg.png');
+  background-size: 100% auto;
   text-align: center;
   font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri';
 }
@@ -47,9 +59,11 @@ body {
   margin: 4px;
   color: #ffffff;
   font-weight: bold;
-  background-color: #27292b;
+  background-color: #27292b00;
   width: 400px;
-  height: 70vh;
+  height: 700px;
+  backdrop-filter: blur(20px);
+  filter: drop-shadow(10px 10px 10px rgb(0, 0, 0));
 }
 
 .imgDiv {
@@ -59,7 +73,7 @@ body {
 }
 
 img {
-  filter: drop-shadow(0 0 2rem rgba(253, 234, 125, 0.726));
+  filter: drop-shadow(0 0 2rem rgb(253, 234, 125));
 }
 
 .calImg {
@@ -103,4 +117,26 @@ button {
 
 button:hover {
   background-color: red;
+}
+
+#alertBox {
+  text-align: center;
+  color: rgb(255, 255, 255);
+  padding: 5px 20px;
+  border-style: solid;
+  border-color: rgb(255, 255, 255);
+  position: absolute;
+  width: auto;
+  font-size: 1em;
+  font-weight: bold;
+  backdrop-filter: blur(30px);
+  filter: drop-shadow(10px 10px 10px rgb(0, 0, 0));
+  height: 300px;
+  align-content: center;
+}
+
+.hide {
+  display: none;
+  padding: 0px;
+  background-color: black;
 }
