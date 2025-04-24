@@ -9,7 +9,7 @@ function init() {
   makeGameGrid(gameContainer)
   displayCurrent(randNum(gameItems.length))
   document.getElementById('bestStreakDiv').textContent =
-    'Best Streak: ' + (bestStreak || 0)
+    'Best Streak: ' + (highscore || 0)
   currentScoreUpdate()
 }
 
@@ -293,7 +293,8 @@ function gameHandler(lButton, hButton, currentNum, nextNum) {
 }
 
 let currentScore = 0
-let bestStreak = localStorage.getItem('calHighscore')
+const highscore = localStorage.getItem('calHighscore')
+let bestStreak = highscore || 0
 
 function currentScoreUpdate(gameoverState, nextNum) {
   if (gameoverState === false) {
@@ -301,8 +302,9 @@ function currentScoreUpdate(gameoverState, nextNum) {
     currentScoreDiv.textContent = 'Score: ' + currentScore
   } else if (gameoverState === true) {
     if (bestStreak < currentScore) {
+      bestStreak = currentScore
       localStorage.setItem('calHighscore', currentScore)
-      bestStreakDiv.textContent = 'Best Streak: ' + currentScore
+      bestStreakDiv.textContent = 'Best Streak: ' + bestStreak
     }
     //ALERT
     let alertBox = document.getElementById('alertBox')
@@ -310,7 +312,7 @@ function currentScoreUpdate(gameoverState, nextNum) {
       'Streak Lost :(<br/><br/>' +
       gameItems[nextNum].name +
       ' is ' +
-      gameItems[nextNum].cals +
+      Number(gameItems[nextNum].cals).toLocaleString() +
       ' Calories' +
       '<br/><br/>Keep going to try beat your streak'
     alertBox.classList.remove('hide')

@@ -53,8 +53,9 @@ function scoreKeeper() {
 const timeButton = document.getElementById('timeButton')
 timeButton.onclick = timeTrial
 const highScoreDiv = document.getElementById('highScore')
-let highScore = localStorage.getItem('moleHighscore')
+const highScore = localStorage.getItem('moleHighscore')
 highScoreDiv.textContent = 'HighScore: ' + (highScore || 0)
+let currentHighscore = highScore || 0
 
 function timeTrial() {
   let scoreNow = score
@@ -67,12 +68,12 @@ function timeTrial() {
     if (distance < 1) {
       clearInterval(x)
       let timeScore = score - scoreNow
-      console.log('done' + timeScore)
       timeButton.innerHTML = 'You Got ' + timeScore + '<br/>Try Again?'
       //highscore = score
-      if (highScore < timeScore) {
+      if (currentHighscore < timeScore) {
+        currentHighscore = timeScore
         localStorage.setItem('moleHighscore', timeScore)
-        highScoreDiv.textContent = 'HighScore: ' + timeScore
+        highScoreDiv.textContent = 'HighScore: ' + currentHighscore
       }
     } else {
       timeButton.textContent = seconds + ' seconds'
