@@ -25,44 +25,6 @@ function initKeyboard() {
   })
 }
 
-//     instance.setOptions({
-//       keyboard = new Keyboard({
-//       onKeyPress: (button) => onKeyPress(button),
-
-//       theme: 'hg-theme-default myTheme1',
-//       layout: {
-//         default: [
-//           ,
-//           'Q W E R T Y U I O P',
-//           'A S D F G H J K L',
-//           '{bksp} Z X C V B N M {enter}',
-//         ],
-//       },
-//       buttonTheme: [
-//         {
-//           class: 'hg-red',
-//           buttons: '{bksp} {enter}',
-//         },
-//         {
-//           class: 'hg-correctKeys',
-//           buttons: correctString.join(' '),
-//         },
-//         {
-//           class: 'hg-containsKeys',
-//           buttons: containsString.join(' '),
-//         },
-//       ],
-
-//       display: {
-//         '{bksp}': '&larr;',
-//         '{enter}': 'Enter',
-//       },
-//     })
-//   })
-//   })
-// }
-
-//Keyboard = window.SimpleKeyboard.default
 const keyboard = new Keyboard({
   onKeyPress: (button) => onKeyPress(button),
 
@@ -138,6 +100,7 @@ function makeAlertBox() {
   alertBox.id = 'alertBox'
   alertBox.textContent = ''
   gameContainer.appendChild(alertBox)
+  makeConfettiDiv(alertBox)
 }
 
 function makeBox(gameGrid, row, col, letter = '') {
@@ -249,6 +212,12 @@ function checkTurn(enteredWord) {
 
   if (won && gameState.currentRow < 5) {
     alertBox.innerHTML = 'YOU WON! :)<br/>'
+    setTimeout(shoot, 0)
+    setTimeout(shoot, 100)
+    // setTimeout(shoot, 200)
+    setTimeout(shoot, 300)
+    // setTimeout(shoot, 400)
+    setTimeout(shoot, 500)
     gameState.currentRow = 5
     gameState.currentCol = 5
     alertBox.classList.remove('hide')
@@ -330,3 +299,36 @@ function tryAgain(button) {
 }
 
 init()
+
+// confetti
+
+function makeConfettiDiv(alertBox) {
+  const confettiDiv = document.getElementById('confetti')
+  alertBox.appendChild(confettiDiv)
+}
+
+function shoot() {
+  var defaults = {
+    decay: 0.94,
+    startVelocity: 30,
+    gravity: 0,
+    zIndex: 0,
+    spread: 360,
+    ticks: 50,
+    gravity: 1,
+    // colors: ['FFE400', 'FFBD00', 'E89400', 'FFCA6C', 'FDFFB8'],
+  }
+
+  confetti({
+    ...defaults,
+    particleCount: 40,
+    scalar: 1,
+    shapes: ['circle'],
+  })
+  confetti({
+    ...defaults,
+    particleCount: 10,
+    scalar: 1.2,
+    shapes: ['star'],
+  })
+}
