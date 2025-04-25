@@ -34,7 +34,8 @@
   height: 100px;
   border: 3px solid;
   border-color: white;
-  margin: 2px;
+  border-radius: 4px;
+  margin: 3px;
   color: #ffffff;
   font-weight: 500;
   background-color: blue;
@@ -53,6 +54,7 @@
   color: white;
   border-style: solid;
   border-width: 3px;
+  border-radius: 4px;
 }
 .button:hover {
   border-color: rgb(175, 175, 175);
@@ -144,7 +146,6 @@
   grid-template-columns: 150px 150px;
   /* grid-template-rows: 50px 20px; */
   word-break: break-all;
-  background-color: rgb(6, 0, 61);
 }
 
 #outputBox p {

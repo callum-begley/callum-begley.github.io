@@ -1,5 +1,18 @@
+//mindbogld mindboglr
+//
+//to do:
+//timer place absolute
+//check words
+//check letters
+//mark off letters
+//give points more for 9
+//show alert for 9
+//highscores
+//section for timer and highscores on grid left?
 //click letters on box goes dark once used
+//instructions in the your words section
 
+let gameStart = false
 let gameName = ['m', 'i', 'n', 'd', 'b', 'o', 'g', 'g', 'l']
 let wordList = [
   'available',
@@ -38,9 +51,7 @@ function init() {
   makeInputBox(gameContainer)
   makeGameGrid(gameContainer)
   makeButtonBox(gameContainer)
-  keyboardpresses()
   updateGameGrid(gameName)
-  gameGridKeys()
   startButton()
   makeOutputBox(gameContainer)
 }
@@ -118,7 +129,10 @@ function startButton() {
   startButton.textContent = 'START'
   alertBox.appendChild(startButton)
   startButton.addEventListener('click', function () {
+    gameStart = true
     wordJumbler(gameState.hiddenWord)
+    keyboardpresses()
+    gameGridKeys()
     alertBox.classList.add('hide')
   })
 }
@@ -132,50 +146,53 @@ function makeOutputBox(gameContainer) {
 }
 
 function keyboardpresses() {
-  document.body.onkeydown = (e) => {
-    let key = e.key
-    if (key === 'Enter') {
-      let word = inputBox.textContent
-      if (isWordValid(word)) {
-        outputBox.innerHTML += '<p>' + word + ' </p>'
-        inputBox.textContent = ''
-        //checkLetters()
-      } else {
-        alertBox.innerHTML = 'MUST BE 3+ LETTERS'
-        alertBox.classList.remove('hide')
-        return
+  if (gameStart === true) {
+    document.body.onkeydown = (e) => {
+      let key = e.key
+      if (key === 'Enter') {
+        let word = inputBox.textContent
+        if (isWordValid(word)) {
+          outputBox.innerHTML += '<p>' + word + ' </p>'
+          inputBox.textContent = ''
+          //checkLetters()
+        } else {
+          alertBox.innerHTML = 'MUST BE 3+ LETTERS'
+          alertBox.classList.remove('hide')
+          return
+        }
       }
-    }
-    if (key === 'Backspace') {
-      deleteLetter(inputBox.textContent)
-      alertBox.innerHTML = ''
-      alertBox.classList.add('hide')
-    }
-    if (isAlpha(key)) {
-      inputBox.textContent += key
-      alertBox.innerHTML = ''
-      alertBox.classList.add('hide')
+      if (key === 'Backspace') {
+        deleteLetter(inputBox.textContent)
+        alertBox.innerHTML = ''
+        alertBox.classList.add('hide')
+      }
+      if (isAlpha(key)) {
+        inputBox.textContent += key
+        alertBox.innerHTML = ''
+        alertBox.classList.add('hide')
+      }
     }
   }
 }
 
 function onKeyPress(button) {
-  if (button === '{entr}') {
-    let word = inputBox.textContent
-
-    if (isWordValid(word)) {
-      //checkLetters()
-      outputBox.innerHTML += '<p>' + word + ' </p>'
-      inputBox.textContent = ''
-    } else {
-      alertBox.innerHTML = 'MUST BE 3+ LETTERS'
-      alertBox.classList.remove('hide')
-      return
+  if (gameStart === true) {
+    if (button === '{entr}') {
+      let word = inputBox.textContent
+      if (isWordValid(word)) {
+        //checkLetters()
+        outputBox.innerHTML += '<p>' + word + ' </p>'
+        inputBox.textContent = ''
+      } else {
+        alertBox.innerHTML = 'MUST BE 3+ LETTERS'
+        alertBox.classList.remove('hide')
+        return
+      }
+    } else if (button === '{bksp}') {
+      deleteLetter(inputBox.textContent)
+      alertBox.innerHTML = ''
+      alertBox.classList.add('hide')
     }
-  } else if (button === '{bksp}') {
-    deleteLetter(inputBox.textContent)
-    alertBox.innerHTML = ''
-    alertBox.classList.add('hide')
   }
 }
 //---------------------------------------------------------------
