@@ -42,6 +42,7 @@ function init() {
   updateGameGrid(gameName)
   gameGridKeys()
   startButton()
+  makeOutputBox(gameContainer)
 }
 
 function makeGameGrid(gameContainer) {
@@ -110,16 +111,24 @@ function makeAlertBox(gameGrid) {
 }
 
 function startButton() {
-  alertBox.innerHTML = 'MINDBOGGL<br/>Press Start to begin<br/>'
+  alertBox.innerHTML = 'Press Start to begin<br/>'
   alertBox.classList.remove('hide')
   const startButton = document.createElement('button')
   startButton.className = 'startButton'
-  startButton.textContent = 'Start'
+  startButton.textContent = 'START'
   alertBox.appendChild(startButton)
   startButton.addEventListener('click', function () {
     wordJumbler(gameState.hiddenWord)
     alertBox.classList.add('hide')
   })
+}
+
+function makeOutputBox(gameContainer) {
+  const outputBox = document.createElement('div')
+  outputBox.className = 'outputBox'
+  outputBox.id = 'outputBox'
+  outputBox.innerHTML = '<h2>Your words:</h2>'
+  gameContainer.appendChild(outputBox)
 }
 
 function keyboardpresses() {
@@ -128,8 +137,9 @@ function keyboardpresses() {
     if (key === 'Enter') {
       let word = inputBox.textContent
       if (isWordValid(word)) {
+        outputBox.innerHTML += '<p>' + word + ' </p>'
+        inputBox.textContent = ''
         //checkLetters()
-        //checkTurn(word.toLowerCase())
       } else {
         alertBox.innerHTML = 'MUST BE 3+ LETTERS'
         alertBox.classList.remove('hide')
@@ -152,9 +162,11 @@ function keyboardpresses() {
 function onKeyPress(button) {
   if (button === '{entr}') {
     let word = inputBox.textContent
+
     if (isWordValid(word)) {
       //checkLetters()
-      //checkTurn(word.toLowerCase())
+      outputBox.innerHTML += '<p>' + word + ' </p>'
+      inputBox.textContent = ''
     } else {
       alertBox.innerHTML = 'MUST BE 3+ LETTERS'
       alertBox.classList.remove('hide')
@@ -169,38 +181,6 @@ function onKeyPress(button) {
 //---------------------------------------------------------------
 
 // function checkLetters() {
-//   for (let i = 0; i < 5; i++) {
-//     let charBox = document.getElementById(
-//       'charBox.' + gameState.currentRow + '' + i
-//     )
-//     let letter = charBox.textContent.toLowerCase()
-
-//     if (letter == gameState.hiddenWord[i]) {
-//       charBox.classList.add('correct')
-//     } else if (gameState.hiddenWord.includes(letter)) {
-//       charBox.classList.add('contains')
-//     } else {
-//       charBox.classList.add('empty')
-//     }
-//   }
-// }
-
-// function checkTurn(enteredWord) {
-//   let won = gameState.hiddenWord === enteredWord
-//   let gameOver = gameState.currentRow === 5
-
-//   if (won && gameState.currentRow < 5) {
-//     document.getElementById('alertBox').innerHTML = 'YOU WON! :)'
-//     gameState.currentRow = 5
-//     gameState.currentCol = 5
-//     document.getElementById('alertBox').classList.remove('hide')
-//   } else if (won && gameState.currentRow === 5) {
-//     document.getElementById('alertBox').innerHTML = 'PHEW, YOU JUST GOT IT!'
-//     document.getElementById('alertBox').classList.remove('hide')
-//   } else if (gameOver && gameState.hiddenWord !== enteredWord) {
-//     document.getElementById('alertBox').innerHTML = 'YOU LOST :('
-//     document.getElementById('alertBox').classList.remove('hide')
-//   }
 // }
 
 function isWordValid(enteredWord) {
@@ -208,12 +188,6 @@ function isWordValid(enteredWord) {
     return enteredWord
   }
 }
-
-// function getEnteredWord() {
-//   return gameState.gameGrid[gameState.currentRow].reduce(
-//     (previous, current) => previous + current
-//   )
-// }
 
 function deleteLetter(string) {
   if (string === '') return
