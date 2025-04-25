@@ -3,10 +3,66 @@
 // Like wordle but funnier
 // funnyness subject to personal sense of humor and maturity
 
+let correctString = []
+let containsString = []
 let wordList = ['array', 'cache', 'buggy', 'nerds']
 let gameState = {}
+
 const Keyboard = window.SimpleKeyboard.default
 
+function initKeyboard() {
+  keyboard.setOptions({
+    buttonTheme: [
+      {
+        class: 'hg-correctKeys',
+        buttons: correctString.join(' '),
+      },
+      {
+        class: 'hg-containsKeys',
+        buttons: containsString.join(' '),
+      },
+    ],
+  })
+}
+
+//     instance.setOptions({
+//       keyboard = new Keyboard({
+//       onKeyPress: (button) => onKeyPress(button),
+
+//       theme: 'hg-theme-default myTheme1',
+//       layout: {
+//         default: [
+//           ,
+//           'Q W E R T Y U I O P',
+//           'A S D F G H J K L',
+//           '{bksp} Z X C V B N M {enter}',
+//         ],
+//       },
+//       buttonTheme: [
+//         {
+//           class: 'hg-red',
+//           buttons: '{bksp} {enter}',
+//         },
+//         {
+//           class: 'hg-correctKeys',
+//           buttons: correctString.join(' '),
+//         },
+//         {
+//           class: 'hg-containsKeys',
+//           buttons: containsString.join(' '),
+//         },
+//       ],
+
+//       display: {
+//         '{bksp}': '&larr;',
+//         '{enter}': 'Enter',
+//       },
+//     })
+//   })
+//   })
+// }
+
+//Keyboard = window.SimpleKeyboard.default
 const keyboard = new Keyboard({
   onKeyPress: (button) => onKeyPress(button),
 
@@ -23,6 +79,14 @@ const keyboard = new Keyboard({
     {
       class: 'hg-red',
       buttons: '{bksp} {enter}',
+    },
+    {
+      class: 'hg-correctKeys',
+      buttons: correctString.join(' '),
+    },
+    {
+      class: 'hg-containsKeys',
+      buttons: containsString.join(' '),
     },
   ],
 
@@ -41,6 +105,9 @@ function startGame() {
     currentCol: 0,
     hiddenWord: wordList[Math.floor(Math.random() * wordList.length)],
   }
+  correctString = []
+  containsString = []
+  initKeyboard()
 }
 
 function init() {
@@ -49,6 +116,7 @@ function init() {
   keyboardpresses()
   startGame()
   getPrompt()
+  initKeyboard()
 }
 
 function makeGameGrid(gameContainer) {
@@ -163,12 +231,15 @@ function checkLetters() {
 
     if (letter == gameState.hiddenWord[i]) {
       charBox.classList.add('correct')
+      correctString.push(gameState.hiddenWord[i].toUpperCase())
     } else if (gameState.hiddenWord.includes(letter)) {
       charBox.classList.add('contains')
+      containsString.push(gameState.hiddenWord[i].toUpperCase())
     } else {
       charBox.classList.add('empty')
     }
   }
+  initKeyboard()
 }
 
 function checkTurn(enteredWord) {

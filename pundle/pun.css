@@ -28,6 +28,8 @@
   height: 80px;
   border: 2px solid var(--empty_tile);
   margin: 4px;
+  border-radius: 4px;
+  filter: drop-shadow(3px 3px 3px rgb(40, 40, 40));
   color: #ffffff;
   font-weight: bold;
 }
@@ -92,6 +94,7 @@
   color: #ffffff;
   background: rgb(30, 30, 30);
   font-weight: bold;
+  margin: 3px 5px 2px 2px;
 }
 
 .simple-keyboard.myTheme1 {
@@ -110,6 +113,16 @@
 .simple-keyboard.myTheme1 .hg-button:active.hg-red {
   background: rgb(60, 60, 60);
   color: #ffffff;
+}
+
+.simple-keyboard.myTheme1 .hg-button.hg-containsKeys {
+  background: var(--contains_tile);
+  color: white;
+}
+
+.simple-keyboard.myTheme1 .hg-button.hg-correctKeys {
+  background: var(--correct_tile);
+  color: white;
 }
 
 #alertBox {
