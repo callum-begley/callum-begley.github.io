@@ -194,10 +194,10 @@ function checkLetters() {
 
     if (letter == gameState.hiddenWord[i]) {
       charBox.classList.add('correct')
-      correctString.push(gameState.hiddenWord[i].toUpperCase())
+      correctString.push(letter.toUpperCase())
     } else if (gameState.hiddenWord.includes(letter)) {
       charBox.classList.add('contains')
-      containsString.push(gameState.hiddenWord[i].toUpperCase())
+      containsString.push(letter.toUpperCase())
     } else {
       charBox.classList.add('empty')
     }
@@ -214,9 +214,7 @@ function checkTurn(enteredWord) {
     alertBox.innerHTML = 'YOU WON! :)<br/>'
     setTimeout(shoot, 0)
     setTimeout(shoot, 100)
-    // setTimeout(shoot, 200)
     setTimeout(shoot, 300)
-    // setTimeout(shoot, 400)
     setTimeout(shoot, 500)
     gameState.currentRow = 5
     gameState.currentCol = 5
