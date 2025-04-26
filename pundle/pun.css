@@ -28,7 +28,7 @@
   height: 80px;
   border: 2px solid var(--empty_tile);
   margin: 4px;
-  border-radius: 4px;
+  border-radius: 2px;
   filter: drop-shadow(3px 3px 3px rgb(40, 40, 40));
   color: #ffffff;
   font-weight: bold;
