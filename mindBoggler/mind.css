@@ -43,32 +43,30 @@
   background-color: rgb(0, 55, 255);
 }
 .charBox:hover {
-  border-color: aqua;
-  color: aqua;
+  /* border-color: silver;
+  color: silver; */
+  background-color: rgb(25, 74, 252);
+  transform: scale(105%);
 }
 
 .button {
-  width: 130px;
-  padding: 20px;
+  width: 120px;
+  height: 80px;
+  margin: 3px;
+  padding: 0px;
   font-size: 1em;
-  font-weight: 600;
+  font-weight: 400;
   border-color: white;
   color: white;
   border-style: solid;
-  border-width: 3px;
+  border-width: 2px;
   border-radius: 4px;
+  background-color: rgb(0, 10, 100);
 }
 .button:hover {
-  border-color: aqua;
-  color: aqua;
+  background-color: rgb(1, 16, 144);
+  transform: scale(105%);
 }
-#enterButton {
-  background-color: rgb(0, 10, 100);
-}
-#backButton {
-  background-color: rgb(0, 10, 100);
-}
-
 .startButton {
   padding: 2px 5px;
   font-size: 1em;
@@ -98,10 +96,7 @@
 
 #buttonBox {
   grid-area: buttons;
-  width: 330px;
   display: flex;
-  justify-content: space-evenly;
-  align-self: center;
   justify-self: center;
   font-size: 2em;
 }
@@ -130,11 +125,23 @@
   transform: translate(0%, -110%);
   justify-self: center;
 }
+#pointAlert {
+  text-align: center;
+  color: rgb(255, 255, 255);
+  padding: 5px 20px;
+  position: absolute;
+  width: auto;
+  font-size: 3em;
+  font-weight: bold;
+  bottom: 100;
+  transform: translate(210%, -100%) rotate(15deg);
+  filter: drop-shadow(5px 5px 1px rgb(0, 13, 255));
+  justify-self: center;
+}
 
 .hide {
   display: none;
   padding: 0px;
-  background-color: black;
 }
 
 #outputBox {
@@ -152,14 +159,29 @@
 
 #outputBox p {
   text-align: left;
-  font-size: 1em;
+  font-size: 1.3em;
   margin: 1px;
 }
 #outputBox h2 {
   font-size: 1.5em;
-  margin: 10px;
   grid-template-areas: 'title title';
   grid-area: 1 / 1 / span 1 / span 2;
+}
+
+.goldLetters {
+  color: gold;
+  transform: scale(110%);
+}
+
+#clearButton {
+  width: 95px;
+}
+
+#backButton {
+  width: 95px;
+}
+#enterButton {
+  width: 130px;
 }
 
 @media only screen and (min-width: 601px) {
@@ -169,7 +191,7 @@
 }
 
 @media only screen and (max-width: 600px) {
-  .charBox {
+  /* .charBox {
     width: 50px;
     height: 50px;
     font-size: x-large;
@@ -177,7 +199,7 @@
   #gameContainer {
     height: 400px;
     width: auto;
-  }
+  } */
   #alertBox {
     bottom: 9vh;
   }

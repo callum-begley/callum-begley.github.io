@@ -4,7 +4,6 @@
 //timer place absolute
 //clear button
 //mark off letters
-//give points more for 9
 //show alert for 9
 //highscores
 //section for timer and highscores on grid left?
@@ -14,6 +13,7 @@
 import wordExists from 'word-exists'
 
 let gameStart = false
+let score = 0
 let enteredWords = []
 let gameName = ['m', 'i', 'n', 'd', 'b', 'o', 'g', 'g', 'l']
 let wordList = [
@@ -98,14 +98,15 @@ function makeButtonBox(gameContainer) {
 }
 
 function makeButtons(buttonBox) {
-  const enterButton = document.createElement('button')
-  enterButton.className = 'button'
-  enterButton.id = 'enterButton'
-  enterButton.textContent = 'Enter'
-  buttonBox.appendChild(enterButton)
-  enterButton.addEventListener('click', function () {
-    onKeyPress('{entr}')
+  const clearButton = document.createElement('button')
+  clearButton.className = 'button'
+  clearButton.id = 'clearButton'
+  clearButton.textContent = 'Clear'
+  buttonBox.appendChild(clearButton)
+  clearButton.addEventListener('click', function () {
+    onKeyPress('{clear}')
   })
+
   const backButton = document.createElement('button')
   backButton.className = 'button'
   backButton.id = 'backButton'
@@ -113,6 +114,15 @@ function makeButtons(buttonBox) {
   buttonBox.appendChild(backButton)
   backButton.addEventListener('click', function () {
     onKeyPress('{bksp}')
+  })
+
+  const enterButton = document.createElement('button')
+  enterButton.className = 'button'
+  enterButton.id = 'enterButton'
+  enterButton.textContent = 'Enter'
+  buttonBox.appendChild(enterButton)
+  enterButton.addEventListener('click', function () {
+    onKeyPress('{entr}')
   })
 }
 
@@ -122,6 +132,15 @@ function makeAlertBox(gameGrid) {
   alertBox.id = 'alertBox'
   alertBox.textContent = ''
   gameGrid.appendChild(alertBox)
+  makePointAlertBox(gameGrid)
+}
+
+function makePointAlertBox(gameGrid) {
+  const pointAlert = document.createElement('div')
+  pointAlert.className = 'hide'
+  pointAlert.id = 'pointAlert'
+  pointAlert.textContent = ''
+  gameGrid.appendChild(pointAlert)
 }
 
 function startButton() {
@@ -144,7 +163,7 @@ function makeOutputBox(gameContainer) {
   const outputBox = document.createElement('div')
   outputBox.className = 'outputBox'
   outputBox.id = 'outputBox'
-  outputBox.innerHTML = '<h2>Your words:</h2>'
+  outputBox.innerHTML = '<h2 id="score">SCORE: ' + score + '</h2>'
   gameContainer.appendChild(outputBox)
 }
 
@@ -174,8 +193,13 @@ function onKeyPress(button) {
       if (isWordValid(word)) {
         if (!enteredWords.includes(word)) {
           if (wordExists(word)) {
-            outputBox.innerHTML += '<p>' + word + ' </p>'
+            if (word.length > 8) {
+              outputBox.innerHTML += '<p class="goldLetters">' + word + ' </p>'
+            } else {
+              outputBox.innerHTML += '<p>' + word + ' </p>'
+            }
             enteredWords.push(word)
+            addPoints(word.length)
             inputBox.textContent = ''
           } else {
             alertBox.innerHTML = 'WORD DOES NOT EXIST'
@@ -195,13 +219,24 @@ function onKeyPress(button) {
       deleteLetter(inputBox.textContent)
       alertBox.innerHTML = ''
       alertBox.classList.add('hide')
+    } else if (button === '{clear}') {
+      inputBox.textContent = ''
+      alertBox.innerHTML = ''
+      alertBox.classList.add('hide')
     }
   }
 }
 //---------------------------------------------------------------
 
-// function checkLetters() {
-// }
+function addPoints(wordLength) {
+  score += wordLength
+  document.getElementById('score').innerHTML = 'SCORE: ' + score
+  pointAlert.textContent = '+' + wordLength
+  pointAlert.classList.remove('hide')
+  setTimeout(() => {
+    pointAlert.classList.add('hide')
+  }, 500)
+}
 
 function isWordValid(enteredWord) {
   if (enteredWord.length > 2) {
