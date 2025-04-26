@@ -2,7 +2,7 @@
 //
 //to do:
 //timer place absolute
-//check words for double ups
+//clear button
 //mark off letters
 //give points more for 9
 //show alert for 9
