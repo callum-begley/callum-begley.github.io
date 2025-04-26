@@ -3,12 +3,11 @@
 // Like wordle but funnier
 // funnyness subject to personal sense of humor and maturity
 
-//make keyboard lighter
-//darken incorrectly guessed letters
 // add a few more puns
 
 let correctString = []
 let containsString = []
+let incorrectString = []
 let wordList = ['array', 'cache', 'buggy', 'nerds']
 let gameState = {}
 
@@ -18,12 +17,20 @@ function initKeyboard() {
   keyboard.setOptions({
     buttonTheme: [
       {
+        class: 'hg-blue',
+        buttons: '{bksp} {enter}',
+      },
+      {
         class: 'hg-correctKeys',
-        buttons: correctString.join(' '),
+        buttons: correctString.join(' ') || ' ',
       },
       {
         class: 'hg-containsKeys',
-        buttons: containsString.join(' '),
+        buttons: containsString.join(' ') || ' ',
+      },
+      {
+        class: 'hg-incorrectKeys',
+        buttons: incorrectString.join(' ') || ' ',
       },
     ],
   })
@@ -41,21 +48,6 @@ const keyboard = new Keyboard({
       '{bksp} Z X C V B N M {enter}',
     ],
   },
-  buttonTheme: [
-    {
-      class: 'hg-red',
-      buttons: '{bksp} {enter}',
-    },
-    {
-      class: 'hg-correctKeys',
-      buttons: correctString.join(' '),
-    },
-    {
-      class: 'hg-containsKeys',
-      buttons: containsString.join(' '),
-    },
-  ],
-
   display: {
     '{bksp}': '&larr;',
     '{enter}': 'Enter',
@@ -73,6 +65,7 @@ function startGame() {
   }
   correctString = []
   containsString = []
+  incorrectString = []
   initKeyboard()
 }
 
@@ -204,6 +197,7 @@ function checkLetters() {
       containsString.push(letter.toUpperCase())
     } else {
       charBox.classList.add('empty')
+      incorrectString.push(letter.toUpperCase())
     }
   }
   initKeyboard()
