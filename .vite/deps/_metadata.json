@@ -1,8 +1,25 @@
 {
-  "hash": "dfec9ed5",
+  "hash": "09b0ca77",
   "configHash": "e1e0b3fd",
-  "lockfileHash": "e3b0c442",
-  "browserHash": "92bf800c",
-  "optimized": {},
-  "chunks": {}
+  "lockfileHash": "742de5b3",
+  "browserHash": "bcf2d0fc",
+  "optimized": {
+    "word-lib": {
+      "src": "../../node_modules/word-lib/lib/index.js",
+      "file": "word-lib.js",
+      "fileHash": "a64b23f8",
+      "needsInterop": true
+    },
+    "word-exists": {
+      "src": "../../node_modules/word-exists/wordExists.js",
+      "file": "word-exists.js",
+      "fileHash": "dae5c4a6",
+      "needsInterop": true
+    }
+  },
+  "chunks": {
+    "chunk-VUNV25KB": {
+      "file": "chunk-VUNV25KB.js"
+    }
+  }
 }

@@ -2,8 +2,7 @@
 //
 //to do:
 //timer place absolute
-//check words
-//check letters
+//check words for double ups
 //mark off letters
 //give points more for 9
 //show alert for 9
@@ -12,7 +11,10 @@
 //click letters on box goes dark once used
 //instructions in the your words section
 
+import wordExists from 'word-exists'
+
 let gameStart = false
+let enteredWords = []
 let gameName = ['m', 'i', 'n', 'd', 'b', 'o', 'g', 'g', 'l']
 let wordList = [
   'available',
@@ -54,6 +56,7 @@ function init() {
   updateGameGrid(gameName)
   startButton()
   makeOutputBox(gameContainer)
+  enteredWords = []
 }
 
 function makeGameGrid(gameContainer) {
@@ -150,21 +153,10 @@ function keyboardpresses() {
     document.body.onkeydown = (e) => {
       let key = e.key
       if (key === 'Enter') {
-        let word = inputBox.textContent
-        if (isWordValid(word)) {
-          outputBox.innerHTML += '<p>' + word + ' </p>'
-          inputBox.textContent = ''
-          //checkLetters()
-        } else {
-          alertBox.innerHTML = 'MUST BE 3+ LETTERS'
-          alertBox.classList.remove('hide')
-          return
-        }
+        onKeyPress('{entr}')
       }
       if (key === 'Backspace') {
-        deleteLetter(inputBox.textContent)
-        alertBox.innerHTML = ''
-        alertBox.classList.add('hide')
+        onKeyPress('{bksp}')
       }
       if (isAlpha(key)) {
         inputBox.textContent += key
@@ -180,10 +172,21 @@ function onKeyPress(button) {
     if (button === '{entr}') {
       let word = inputBox.textContent
       if (isWordValid(word)) {
-        //checkLetters()
-        outputBox.innerHTML += '<p>' + word + ' </p>'
-        inputBox.textContent = ''
-      } else {
+        if (!enteredWords.includes(word)) {
+          if (wordExists(word)) {
+            outputBox.innerHTML += '<p>' + word + ' </p>'
+            enteredWords.push(word)
+            inputBox.textContent = ''
+          } else {
+            alertBox.innerHTML = 'WORD DOES NOT EXIST'
+            alertBox.classList.remove('hide')
+            return
+          }
+        } else {
+          alertBox.innerHTML = 'WORD ALREADY ENTERED'
+          alertBox.classList.remove('hide')
+        }
+      } else if (inputBox.textContent !== '') {
         alertBox.innerHTML = 'MUST BE 3+ LETTERS'
         alertBox.classList.remove('hide')
         return
@@ -253,3 +256,5 @@ function wordJumbler(string) {
 }
 
 init()
+
+//console.log('wordExists() ' + wordExists('remember'))

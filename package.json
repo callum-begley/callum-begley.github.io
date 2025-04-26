@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "word-exists": "^1.0.0",
+    "word-lib": "^1.0.7"
+  }
+}
