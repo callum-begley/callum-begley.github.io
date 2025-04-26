@@ -3,6 +3,10 @@
 // Like wordle but funnier
 // funnyness subject to personal sense of humor and maturity
 
+//make keyboard lighter
+//darken incorrectly guessed letters
+// add a few more puns
+
 let correctString = []
 let containsString = []
 let wordList = ['array', 'cache', 'buggy', 'nerds']
