@@ -11,6 +11,8 @@
 
 import wordExists from 'word-exists'
 
+// const wordExists = require('word-exists')
+
 let gameStart = false
 let score = 0
 let enteredWords = []
