@@ -16,8 +16,6 @@
     'buttons list';
   grid-template-columns: auto 300px;
   grid-template-rows: 50px 400px 100px;
-  background-color: rgb(0, 10, 40);
-  border-radius: 50px;
 }
 
 .gameGrid {
@@ -27,6 +25,11 @@
   grid-template-columns: repeat(3, auto);
   align-self: center;
   justify-self: center;
+  background-color: rgb(0, 23, 107);
+  padding: 10px;
+  border: 3px solid;
+  border-color: rgb(0, 33, 151);
+  border-radius: 10px;
 }
 .charBox {
   font-size: 5em;
@@ -43,8 +46,6 @@
   background-color: rgb(0, 55, 255);
 }
 .charBox:hover {
-  /* border-color: silver;
-  color: silver; */
   background-color: rgb(25, 74, 252);
   transform: scale(105%);
 }
@@ -62,6 +63,7 @@
   border-width: 2px;
   border-radius: 4px;
   background-color: rgb(0, 10, 100);
+  filter: drop-shadow(3px 3px 0px rgb(255, 255, 255));
 }
 .button:hover {
   background-color: rgb(1, 16, 144);
