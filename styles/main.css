@@ -259,6 +259,12 @@ code {
   .blogVideo {
     justify-self: left;
   }
+  .gameImg {
+    width: 250px;
+    height: auto;
+    display: block;
+    justify-self: center;
+  }
 }
 
 @media only screen and (max-width: 385px) {

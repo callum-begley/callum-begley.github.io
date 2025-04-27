@@ -141,3 +141,52 @@ button:hover {
   padding: 0px;
   background-color: black;
 }
+
+@media only screen and (max-width: 780px) {
+  body {
+    background-image: url('./calimages/higherlowerbkg2.png');
+    background-repeat: no-repeat;
+    background-size: 100vw 100vh;
+    /* background: black; */
+  }
+  .calGameBody {
+    font-size: 1em;
+    width: 100%;
+  }
+  #calGameContainer {
+    width: auto;
+    height: auto;
+  }
+  #gameGrid {
+    height: auto;
+    width: auto;
+    padding: 0px;
+  }
+  .calImg {
+    max-width: fit-content;
+    width: 47vw;
+    height: auto;
+    max-height: 50vw;
+  }
+  .gameBox {
+    width: 47vw;
+    height: 450px;
+    backdrop-filter: blur(20px);
+    filter: drop-shadow(10px 10px 10px rgb(0, 0, 0));
+  }
+  .imgDiv {
+    width: auto;
+    height: auto;
+  }
+  button {
+    font-weight: 800;
+    width: 80px;
+    height: 40px;
+  }
+  #alertBox {
+    width: auto;
+    font-size: 1em;
+    font-weight: bold;
+    height: 150px;
+  }
+}
