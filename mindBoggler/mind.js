@@ -2,7 +2,6 @@
 //
 //to do:
 //timer place absolute
-//clear button
 //mark off letters
 //show alert for 9
 //highscores
@@ -153,7 +152,7 @@ function startButton() {
   startButton.addEventListener('click', function () {
     gameStart = true
     wordJumbler(gameState.hiddenWord)
-    keyboardpresses()
+    keyboardPresses()
     gameGridKeys()
     alertBox.classList.add('hide')
   })
@@ -167,7 +166,7 @@ function makeOutputBox(gameContainer) {
   gameContainer.appendChild(outputBox)
 }
 
-function keyboardpresses() {
+function keyboardPresses() {
   if (gameStart === true) {
     document.body.onkeydown = (e) => {
       let key = e.key
@@ -178,9 +177,17 @@ function keyboardpresses() {
         onKeyPress('{bksp}')
       }
       if (isAlpha(key)) {
-        inputBox.textContent += key
-        alertBox.innerHTML = ''
-        alertBox.classList.add('hide')
+        if (gameState.hiddenWord.includes(key)) {
+          inputBox.textContent += key
+          alertBox.innerHTML = ''
+          alertBox.classList.add('hide')
+        } else {
+          alertBox.innerHTML = 'LETTER NOT ALLOWED'
+          alertBox.classList.remove('hide')
+          setTimeout(() => {
+            alertBox.classList.add('hide')
+          }, 500)
+        }
       }
     }
   }
@@ -291,5 +298,3 @@ function wordJumbler(string) {
 }
 
 init()
-
-//console.log('wordExists() ' + wordExists('remember'))
