@@ -8,7 +8,18 @@
 let correctString = []
 let containsString = []
 let incorrectString = []
-let wordList = ['array', 'cache', 'buggy', 'nerds']
+let wordList = [
+  'array',
+  'cache',
+  'buggs',
+  'nerds',
+  'break',
+  'divas',
+  'loops',
+  'login',
+  'embed',
+  'index',
+]
 let gameState = {}
 
 const Keyboard = window.SimpleKeyboard.default
@@ -172,13 +183,37 @@ function getPrompt() {
     document.getElementById('punPrompt').innerHTML =
       'What did the robber steal from the server?'
   }
-  if (word === 'buggy') {
+  if (word === 'buggs') {
     document.getElementById('punPrompt').innerHTML =
-      "What's a programmers least favourite beach vehicle?"
+      "What's a programmers least favourite cartoon character?"
   }
   if (word === 'nerds') {
     document.getElementById('punPrompt').innerHTML =
       "What's a programmers favourite candy?"
+  }
+  if (word === 'break') {
+    document.getElementById('punPrompt').innerHTML =
+      'How did the programmer end his relationship with the for loop?'
+  }
+  if (word === 'divas') {
+    document.getElementById('punPrompt').innerHTML =
+      'What do you call div elements with attitude?'
+  }
+  if (word === 'loops') {
+    document.getElementById('punPrompt').innerHTML =
+      "What's a programmers favourite cereal shape?"
+  }
+  if (word === 'login') {
+    document.getElementById('punPrompt').innerHTML =
+      'What do websites and lumberjacks both love?'
+  }
+  if (word === 'embed') {
+    document.getElementById('punPrompt').innerHTML =
+      'How do programmers watch videos?'
+  }
+  if (word === 'index') {
+    document.getElementById('punPrompt').innerHTML =
+      'Which finger should you use to loop over an array?'
   }
 }
 
