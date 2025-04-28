@@ -11,7 +11,7 @@
 //instructions in the your words section
 
 // import wordExists from 'word-exists'
-import dictionary from './dictionary.json' with { type: "json" }
+import dictionary from './dictionary.json' with { type: "application/json" }
 
 let gameStart = false
 let score = 0
@@ -300,15 +300,7 @@ function wordJumbler(string) {
 }
 
 function animationControl() {
-  // for (let i = 0; i < 3; i++) {
-  //   for (let o = 0; o < 3; o++) {
-  //     let charBox = document.getElementById('charBox' + i + '' + o)
-  //     charBox.style.animation = 'slide 5s forwards'
-  //     charBox.style.animationPlayState = "paused"
-  //   }
-  // }
-  
-    for (let i = 0; i < 3; i++) {
+     for (let i = 0; i < 3; i++) {
       for (let o = 0; o < 3; o++) {
         let charBox = document.getElementById('charBox' + i + '' + o)
         if (gameStart === false) {
@@ -319,7 +311,6 @@ function animationControl() {
       }
       }
     }
-  
 }
 
 //------------------------------word checker-------------------------------------------------//
