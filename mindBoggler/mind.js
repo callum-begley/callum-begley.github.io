@@ -3,14 +3,15 @@
 //to do:
 //timer place absolute
 //mark off letters
-//show alert for 9
+//animate score adder
+// bonus points for 9
 //highscores
 //section for timer and highscores on grid left?
 //click letters on box goes dark once used
 //instructions in the your words section
 
 // import wordExists from 'word-exists'
-import dictionary from '../node_modules/word-exists/dictionary.json'
+import dictionary from './dictionary.json'
 
 let gameStart = false
 let score = 0
@@ -231,9 +232,14 @@ function onKeyPress(button) {
 //---------------------------------------------------------------
 
 function addPoints(wordLength) {
-  score += wordLength
+  if (wordLength > 8) {
+    score += wordLength * 2
+    pointAlert.innerHTML = '+' + wordLength * 2
+  } else {
+    score += wordLength
+    pointAlert.innerHTML = '&nbsp;&nbsp;+' + wordLength
+  }
   document.getElementById('score').innerHTML = 'SCORE: ' + score
-  pointAlert.textContent = '+' + wordLength
   pointAlert.classList.remove('hide')
   setTimeout(() => {
     pointAlert.classList.add('hide')

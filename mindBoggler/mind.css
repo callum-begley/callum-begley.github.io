@@ -127,6 +127,7 @@
   transform: translate(0%, -110%);
   justify-self: center;
 }
+
 #pointAlert {
   text-align: center;
   color: rgb(255, 255, 255);
@@ -136,7 +137,7 @@
   font-size: 3em;
   font-weight: bold;
   bottom: 100;
-  transform: translate(210%, -100%) rotate(15deg);
+  transform: translate(160%, -100%) rotate(15deg);
   filter: drop-shadow(5px 5px 1px rgb(0, 13, 255));
   justify-self: center;
 }
