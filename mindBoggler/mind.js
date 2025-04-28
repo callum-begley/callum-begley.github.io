@@ -2,16 +2,14 @@
 //
 //to do:
 //timer place absolute
-//mark off letters
 //animate score adder
-// bonus points for 9
 //highscores
 //section for timer and highscores on grid left?
-//click letters on box goes dark once used
+// X click letters on box goes dark once used
 //instructions in the your words section
 
 // import wordExists from 'word-exists'
-import dictionary from './dictionary.json' with { type: "application/json" }
+import dictionary from './dictionary.json' with { type: "json" }
 
 let gameStart = false
 let score = 0
@@ -300,17 +298,17 @@ function wordJumbler(string) {
 }
 
 function animationControl() {
-     for (let i = 0; i < 3; i++) {
-      for (let o = 0; o < 3; o++) {
-        let charBox = document.getElementById('charBox' + i + '' + o)
-        if (gameStart === false) {
-        charBox.style.animation = 'slide 5s forwards'
-        charBox.style.animationPlayState = "paused"
-      } else {
-        charBox.style.animationPlayState = "running"
-      }
-      }
+  for (let i = 0; i < 3; i++) {
+    for (let o = 0; o < 3; o++) {
+      let charBox = document.getElementById('charBox' + i + '' + o)
+      if (gameStart === false) {
+      charBox.style.animation = 'slide 5s forwards'
+      charBox.style.animationPlayState = "paused"
+    } else {
+      charBox.style.animationPlayState = "initial"
     }
+    }
+  }
 }
 
 //------------------------------word checker-------------------------------------------------//

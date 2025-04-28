@@ -192,6 +192,7 @@
 #charBox00 {
   animation-name: ani00;
   animation-duration: 5s;
+  animation-play-state: running;
   animation-iteration-count: infinite;
 }
 @keyframes ani00 {
@@ -207,6 +208,7 @@
 #charBox01 {
   animation-name: ani01;
   animation-duration: 5s;
+  animation-play-state: running;
   animation-iteration-count: infinite;
   animation-delay: 0.25s;
 }
@@ -223,6 +225,7 @@
 #charBox02 {
   animation-name: ani02;
   animation-duration: 5s;
+  animation-play-state: running;
   animation-iteration-count: infinite;
   animation-delay: 0.5s;
 }
@@ -239,6 +242,7 @@
 #charBox10 {
   animation-name: ani10;
   animation-duration: 5s;
+  animation-play-state: running;
   animation-iteration-count: infinite;
   animation-delay: 0.75s;
 }
@@ -255,6 +259,7 @@
 #charBox11 {
   animation-name: ani11;
   animation-duration: 5s;
+  animation-play-state: running;
   animation-iteration-count: infinite;
   animation-delay: 1s;
 }
@@ -271,6 +276,7 @@
 #charBox12 {
   animation-name: ani12;
   animation-duration: 5s;
+  animation-play-state: running;
   animation-iteration-count: infinite;
   animation-delay: 1.25s;
 }
@@ -287,6 +293,7 @@
 #charBox20 {
   animation-name: ani20;
   animation-duration: 5s;
+  animation-play-state: running;
   animation-iteration-count: infinite;
   animation-delay: 1.5s;
 }
@@ -303,6 +310,7 @@
 #charBox21 {
   animation-name: ani21;
   animation-duration: 5s;
+  animation-play-state: running;
   animation-iteration-count: infinite;
   animation-delay: 1.75s;
 }
@@ -319,6 +327,7 @@
 #charBox22 {
   animation-name: ani22;
   animation-duration: 5s;
+  animation-play-state: running;
   animation-iteration-count: infinite;
   animation-delay: 2s;
 }
