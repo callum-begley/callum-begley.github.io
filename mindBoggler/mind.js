@@ -12,54 +12,33 @@
 // import wordExists from 'word-exists'
 import dictionary from '../node_modules/word-exists/dictionary.json'
 
-const wordExists = (text) => {
-  if (typeof text === 'string') {
-    const cleaned = text.trim().toLowerCase()
-
-    return !!(cleaned.length > 1
-      ? dictionary[cleaned.slice(0, 2)] &&
-        dictionary[cleaned.slice(0, 2)].includes(cleaned)
-      : cleaned === 'a' || cleaned === 'i')
-  } else {
-    throw new TypeError('The paramater passed to wordExists must be a string')
-  }
-}
-
 let gameStart = false
 let score = 0
 let enteredWords = []
-let gameName = ['m', 'i', 'n', 'd', 'b', 'o', 'g', 'g', 'l']
-let wordList = [
-  'available',
-  'copyright',
-  'education',
-  'community',
-  'following',
-  'resources',
-  'including',
-  'directory',
-  'insurance',
-  'different',
-  'september',
-  'questions',
-  'financial',
-  'equipment',
-  'important',
-  'something',
-  'committee',
-  'reference',
-  'companies',
-  'computers',
-]
-
-let gameState = {
-  gameGrid: Array(3)
-    .fill()
-    .map(() => Array(3).fill('')),
-  currentRow: 0,
-  currentCol: 0,
-  hiddenWord: wordList[Math.floor(Math.random() * wordList.length)],
-}
+let gameName = ['m', 'i', 'n', 'd', 'b', 'o', 'g', 'l', 'd']
+let hiddenWord = ''
+// let wordList = [
+//   'available',
+//   'copyright',
+//   'education',
+//   'community',
+//   'following',
+//   'resources',
+//   'including',
+//   'directory',
+//   'insurance',
+//   'different',
+//   'september',
+//   'questions',
+//   'financial',
+//   'equipment',
+//   'important',
+//   'something',
+//   'committee',
+//   'reference',
+//   'companies',
+//   'computers',
+// ]
 
 function init() {
   const gameContainer = document.getElementById('gameContainer')
@@ -165,7 +144,9 @@ function startButton() {
   alertBox.appendChild(startButton)
   startButton.addEventListener('click', function () {
     gameStart = true
-    wordJumbler(gameState.hiddenWord)
+    let hiddenWord = random()
+    console.log('H: ' + hiddenWord)
+    wordJumbler(hiddenWord)
     keyboardPresses()
     gameGridKeys()
     alertBox.classList.add('hide')
@@ -191,7 +172,7 @@ function keyboardPresses() {
         onKeyPress('{bksp}')
       }
       if (isAlpha(key)) {
-        if (gameState.hiddenWord.includes(key)) {
+        if (hiddenWord.includes(key)) {
           inputBox.textContent += key
           alertBox.innerHTML = ''
           alertBox.classList.add('hide')
@@ -310,5 +291,52 @@ function wordJumbler(string) {
   }
   updateGameGrid(randArray)
 }
+
+//------------------------------word checker-------------------------------------------------//
+const wordExists = (text) => {
+  if (typeof text === 'string') {
+    const cleaned = text.trim().toLowerCase()
+
+    return !!(cleaned.length > 1
+      ? dictionary[cleaned.slice(0, 2)] &&
+        dictionary[cleaned.slice(0, 2)].includes(cleaned)
+      : cleaned === 'a' || cleaned === 'i')
+  } else {
+    throw new TypeError('The paramater passed to wordExists must be a string')
+  }
+}
+let random = function () {
+  let maxLength = 9
+
+  var _word = ''
+  var shuffledWordSet = shuffle(Object.values(dictionary))
+  exit_loop: for (var i = 0; i < shuffledWordSet.length; i++) {
+    var set = shuffle(shuffledWordSet[i])
+    for (var j = 0; j < set.length; j++) {
+      var word = set[j]
+      if (word.length >= 3) {
+        if (word.length === maxLength) {
+          _word = word
+          break exit_loop
+        }
+      }
+    }
+  }
+  return _word
+}
+function shuffle(array) {
+  var _a
+  var currentIndex = array.length
+  var randomIndex
+  while (currentIndex != 0) {
+    randomIndex = Math.floor(Math.random() * currentIndex)
+    currentIndex--
+    ;(_a = [array[randomIndex], array[currentIndex]]),
+      (array[currentIndex] = _a[0]),
+      (array[randomIndex] = _a[1])
+  }
+  return array
+}
+//----------------------------------------------------------------------//
 
 init()
