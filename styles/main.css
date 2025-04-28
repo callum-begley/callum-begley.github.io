@@ -171,6 +171,7 @@ code {
   margin-left: 5%;
   margin-right: 5%;
   margin-bottom: 1%;
+  margin-top: 3%;
   padding: 10px;
   border-radius: 10px;
   background-color: rgba(25, 25, 25, 0.5);
@@ -234,7 +235,7 @@ code {
   object-fit: cover;
 }
 
-@media only screen and (max-width: 680px) {
+@media only screen and (max-width: 780px) {
   h1 {
     font-size: 2em;
   }
@@ -264,6 +265,15 @@ code {
     height: auto;
     display: block;
     justify-self: center;
+  }
+  img {
+    width: 80vw;
+  }
+  #memeSpacer {
+    justify-content: center;
+  }
+  #memeBody {
+    margin-top: 7%;
   }
 }
 

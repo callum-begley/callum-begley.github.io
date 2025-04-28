@@ -9,9 +9,21 @@
 //click letters on box goes dark once used
 //instructions in the your words section
 
-import wordExists from 'word-exists'
+// import wordExists from 'word-exists'
+import dictionary from '../node_modules/word-exists/dictionary.json'
 
-// const wordExists = require('word-exists')
+const wordExists = (text) => {
+  if (typeof text === 'string') {
+    const cleaned = text.trim().toLowerCase()
+
+    return !!(cleaned.length > 1
+      ? dictionary[cleaned.slice(0, 2)] &&
+        dictionary[cleaned.slice(0, 2)].includes(cleaned)
+      : cleaned === 'a' || cleaned === 'i')
+  } else {
+    throw new TypeError('The paramater passed to wordExists must be a string')
+  }
+}
 
 let gameStart = false
 let score = 0
@@ -83,7 +95,7 @@ function makeInputBox(gameContainer) {
 function makeBox(gameGrid, row, col, letter = '') {
   const charBox = document.createElement('div')
   charBox.className = 'charBox'
-  charBox.id = 'charBox.' + row + '' + col
+  charBox.id = 'charBox' + row + '' + col
   charBox.textContent = letter
   gameGrid.appendChild(charBox)
   return charBox
@@ -264,7 +276,7 @@ function updateGameGrid(array) {
   let j = 0
   for (let i = 0; i < 3; i++) {
     for (let o = 0; o < 3; o++) {
-      let charBox = document.getElementById('charBox.' + i + '' + o)
+      let charBox = document.getElementById('charBox' + i + '' + o)
       charBox.textContent = array[j]
       j++
     }
@@ -275,7 +287,7 @@ function gameGridKeys() {
   let j = 0
   for (let i = 0; i < 3; i++) {
     for (let o = 0; o < 3; o++) {
-      let charBox = document.getElementById('charBox.' + i + '' + o)
+      let charBox = document.getElementById('charBox' + i + '' + o)
       charBox.addEventListener('click', function () {
         inputBox.textContent += charBox.innerHTML
         alertBox.classList.add('hide')
