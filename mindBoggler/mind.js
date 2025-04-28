@@ -11,7 +11,7 @@
 //instructions in the your words section
 
 // import wordExists from 'word-exists'
-import dictionary from './dictionary.json'
+import dictionary from './dictionary.json' with { type: "json" }
 
 let gameStart = false
 let score = 0
@@ -144,6 +144,7 @@ function startButton() {
   startButton.textContent = 'START'
   alertBox.appendChild(startButton)
   startButton.addEventListener('click', function () {
+    animationControl()
     gameStart = true
     let hiddenWord = random()
     console.log('H: ' + hiddenWord)
@@ -233,11 +234,11 @@ function onKeyPress(button) {
 
 function addPoints(wordLength) {
   if (wordLength > 8) {
-    score += wordLength * 2
-    pointAlert.innerHTML = '+' + wordLength * 2
+    score += wordLength * 20
+    pointAlert.innerHTML = '+' + wordLength * 20
   } else {
-    score += wordLength
-    pointAlert.innerHTML = '&nbsp;&nbsp;+' + wordLength
+    score += wordLength * 10
+    pointAlert.innerHTML = '&nbsp;&nbsp;+' + wordLength * 10
   }
   document.getElementById('score').innerHTML = 'SCORE: ' + score
   pointAlert.classList.remove('hide')
@@ -296,6 +297,29 @@ function wordJumbler(string) {
     array.splice(randNum, 1)
   }
   updateGameGrid(randArray)
+}
+
+function animationControl() {
+  // for (let i = 0; i < 3; i++) {
+  //   for (let o = 0; o < 3; o++) {
+  //     let charBox = document.getElementById('charBox' + i + '' + o)
+  //     charBox.style.animation = 'slide 5s forwards'
+  //     charBox.style.animationPlayState = "paused"
+  //   }
+  // }
+  
+    for (let i = 0; i < 3; i++) {
+      for (let o = 0; o < 3; o++) {
+        let charBox = document.getElementById('charBox' + i + '' + o)
+        if (gameStart === false) {
+        charBox.style.animation = 'slide 5s forwards'
+        charBox.style.animationPlayState = "paused"
+      } else {
+        charBox.style.animationPlayState = "running"
+      }
+      }
+    }
+  
 }
 
 //------------------------------word checker-------------------------------------------------//

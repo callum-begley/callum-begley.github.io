@@ -137,7 +137,7 @@
   font-size: 3em;
   font-weight: bold;
   bottom: 100;
-  transform: translate(160%, -100%) rotate(15deg);
+  transform: translate(120%, -110%) rotate(15deg);
   filter: drop-shadow(5px 5px 1px rgb(0, 13, 255));
   justify-self: center;
 }
@@ -190,12 +190,11 @@
 /* animation */
 
 #charBox00 {
-  animation-name: ani1;
+  animation-name: ani00;
   animation-duration: 5s;
-  animation-iteration-count: 3;
+  animation-iteration-count: infinite;
 }
-
-@keyframes ani1 {
+@keyframes ani00 {
   0% {
     background-color: rgb(25, 74, 252);
     transform: scale(110%);
@@ -205,15 +204,13 @@
     transform: scale(100%);
   }
 }
-
 #charBox01 {
-  animation-name: ani2;
+  animation-name: ani01;
   animation-duration: 5s;
-  animation-iteration-count: 3;
+  animation-iteration-count: infinite;
   animation-delay: 0.25s;
 }
-
-@keyframes ani2 {
+@keyframes ani01 {
   0% {
     background-color: rgb(25, 74, 252);
     transform: scale(110%);
@@ -223,15 +220,13 @@
     transform: scale(100%);
   }
 }
-
 #charBox02 {
-  animation-name: ani3;
+  animation-name: ani02;
   animation-duration: 5s;
-  animation-iteration-count: 3;
+  animation-iteration-count: infinite;
   animation-delay: 0.5s;
 }
-
-@keyframes ani3 {
+@keyframes ani02 {
   0% {
     background-color: rgb(25, 74, 252);
     transform: scale(110%);
@@ -242,13 +237,12 @@
   }
 }
 #charBox10 {
-  animation-name: ani4;
+  animation-name: ani10;
   animation-duration: 5s;
-  animation-iteration-count: 3;
+  animation-iteration-count: infinite;
   animation-delay: 0.75s;
 }
-
-@keyframes ani4 {
+@keyframes ani10 {
   0% {
     background-color: rgb(25, 74, 252);
     transform: scale(110%);
@@ -259,13 +253,12 @@
   }
 }
 #charBox11 {
-  animation-name: ani5;
+  animation-name: ani11;
   animation-duration: 5s;
-  animation-iteration-count: 3;
+  animation-iteration-count: infinite;
   animation-delay: 1s;
 }
-
-@keyframes ani5 {
+@keyframes ani11 {
   0% {
     background-color: rgb(25, 74, 252);
     transform: scale(110%);
@@ -276,13 +269,12 @@
   }
 }
 #charBox12 {
-  animation-name: ani6;
+  animation-name: ani12;
   animation-duration: 5s;
-  animation-iteration-count: 3;
+  animation-iteration-count: infinite;
   animation-delay: 1.25s;
 }
-
-@keyframes ani6 {
+@keyframes ani12 {
   0% {
     background-color: rgb(25, 74, 252);
     transform: scale(110%);
@@ -293,13 +285,12 @@
   }
 }
 #charBox20 {
-  animation-name: ani7;
+  animation-name: ani20;
   animation-duration: 5s;
-  animation-iteration-count: 3;
+  animation-iteration-count: infinite;
   animation-delay: 1.5s;
 }
-
-@keyframes ani7 {
+@keyframes ani20 {
   0% {
     background-color: rgb(25, 74, 252);
     transform: scale(110%);
@@ -310,13 +301,12 @@
   }
 }
 #charBox21 {
-  animation-name: ani8;
+  animation-name: ani21;
   animation-duration: 5s;
-  animation-iteration-count: 3;
+  animation-iteration-count: infinite;
   animation-delay: 1.75s;
 }
-
-@keyframes ani8 {
+@keyframes ani21 {
   0% {
     background-color: rgb(25, 74, 252);
     transform: scale(110%);
@@ -327,13 +317,12 @@
   }
 }
 #charBox22 {
-  animation-name: ani9;
+  animation-name: ani22;
   animation-duration: 5s;
-  animation-iteration-count: 3;
+  animation-iteration-count: infinite;
   animation-delay: 2s;
 }
-
-@keyframes ani9 {
+@keyframes ani22 {
   0% {
     background-color: rgb(25, 74, 252);
     transform: scale(110%);
