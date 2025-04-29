@@ -174,7 +174,7 @@ function makeHighScoreBox(gameContainer) {
   const timeBox = document.createElement('div')
   timeBox.className = 'timeBox'
   timeBox.id = 'timeBox'
-  timeBox.innerHTML = 'TIME: 0.00'
+  timeBox.innerHTML = 'TIME: 3.00'
   gameContainer.appendChild(timeBox)
 }
 
@@ -332,7 +332,7 @@ const highScore = localStorage.getItem('mindHighScore')
 let currentHighScore = highScore || 0
 
 function timeTrial() {
-  let countDown = new Date().getTime() + 182000
+  let countDown = new Date().getTime() + 181000
   let x = setInterval(function () {
     let now = new Date().getTime()
     let distance = countDown - now
