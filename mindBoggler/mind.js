@@ -1,7 +1,6 @@
 //mindbogld
 //
 //to do:
-// gold points for 9+
 // X click letters on box goes dark once used
 //instructions in the your words section
 
@@ -191,23 +190,12 @@ function keyboardPresses() {
       }
       if (isAlpha(key)) {
         if (gameStart === false) return
-        if (hiddenWord.includes(key)) {
-          inputBox.textContent += key
-          alertBox.innerHTML = ''
-          alertBox.classList.add('hide')
-        } else {
-          alertBox.innerHTML = 'LETTER NOT ALLOWED'
-          alertBox.classList.remove('hide')
-          setTimeout(() => {
-            alertBox.classList.add('hide')
-          }, 500)
-        }
+        onKeyPress(key)
       }
   }
 }
 
-function onKeyPress(button) {
-  let key = button
+function onKeyPress(key) {
   if (gameStart === false) return
     if (key === '{entr}') {
       let word = inputBox.textContent
@@ -246,6 +234,7 @@ function onKeyPress(button) {
       alertBox.classList.add('hide')
     } else if (isAlpha(key)){
       if (hiddenWord.includes(key)) {
+        if (inputBox.textContent.length > 16) return
         inputBox.textContent += key
         alertBox.innerHTML = ''
         alertBox.classList.add('hide')
@@ -268,7 +257,7 @@ function addPoints(wordLength) {
     score += wordLength * 10
     pointAlert.innerHTML = '&nbsp;&nbsp;+' + wordLength * 10
   }
-  document.getElementById('scoreBox').innerHTML = 'SCORE: ' + score
+  scoreBox.innerHTML = 'SCORE: ' + score
   pointAlert.classList.remove('hide')
   setTimeout(() => {
     pointAlert.classList.add('hide')
@@ -300,7 +289,6 @@ function updateGameGrid(array) {
 }
 
 function gameGridKeys() {
-  //change by class?
   for (let i = 0; i < 3; i++) {
     for (let o = 0; o < 3; o++) {
       let charBox = document.getElementById('charBox' + i + '' + o)
@@ -310,7 +298,6 @@ function gameGridKeys() {
     }
   }
 }
-
 
 function isAlpha(key) {
   return key.length === 1 && key.match(/[a-z]/i)
@@ -327,10 +314,8 @@ function wordJumbler(string) {
   updateGameGrid(randArray)
 }
 
-
-function animationControl(randArray) {
+function animationControl() {
   const anim = document.getAnimations()
-
   for (let i = 0; i < anim.length; i++){
     if (gameStart === true){
       //anim[i].pause()
@@ -374,16 +359,10 @@ function timeTrial() {
 
 //-----------------------------Dictionary Util--------------------------//
 const wordExists = (text) => {
-  if (typeof text === 'string') {
-    const cleaned = text.trim().toLowerCase()
-
-    return !!(cleaned.length > 1
-      ? dictionary[cleaned.slice(0, 2)] &&
-        dictionary[cleaned.slice(0, 2)].includes(cleaned)
-      : cleaned === 'a' || cleaned === 'i')
-  } else {
-    throw new TypeError('The paramater passed to wordExists must be a string')
-  }
+    return !!(text.length > 1
+      ? dictionary[text.slice(0, 2)] &&
+        dictionary[text.slice(0, 2)].includes(text)
+      : text === 'a' || text === 'i')
 }
 let random = function () {
   let maxLength = 9
