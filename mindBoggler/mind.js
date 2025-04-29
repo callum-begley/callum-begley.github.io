@@ -1,14 +1,10 @@
 //mindbogld mindboglr
 //
 //to do:
-//timer place absolute
-//animate score adder
-//highscores
-//section for timer and highscores on grid left?
+// end game after timer
 // X click letters on box goes dark once used
 //instructions in the your words section
 
-// import wordExists from 'word-exists'
 import dictionary from './dictionary.json' with { type: "json" }
 
 let gameStart = false
@@ -47,6 +43,7 @@ function init() {
   updateGameGrid(gameName)
   startButton()
   makeOutputBox(gameContainer)
+  makeHighScoreBox(gameContainer)
   enteredWords = []
 }
 
@@ -150,6 +147,7 @@ function startButton() {
     keyboardPresses()
     gameGridKeys()
     alertBox.classList.add('hide')
+    timeTrial()
   })
 }
 
@@ -157,8 +155,27 @@ function makeOutputBox(gameContainer) {
   const outputBox = document.createElement('div')
   outputBox.className = 'outputBox'
   outputBox.id = 'outputBox'
-  outputBox.innerHTML = '<h2 id="score">SCORE: ' + score + '</h2>'
   gameContainer.appendChild(outputBox)
+}
+
+function makeHighScoreBox(gameContainer) {
+  const highScoreBox = document.createElement('div')
+  highScoreBox.className = 'highScoreBox'
+  highScoreBox.id = 'highScoreBox'
+  highScoreBox.innerHTML = 'HIGHSCORE: ' + (highScore || 0)
+  gameContainer.appendChild(highScoreBox)
+
+  const scoreBox = document.createElement('div')
+  scoreBox.className = 'scoreBox'
+  scoreBox.id = 'scoreBox'
+  scoreBox.innerHTML = 'SCORE: ' + score
+  gameContainer.appendChild(scoreBox)
+
+  const timeBox = document.createElement('div')
+  timeBox.className = 'timeBox'
+  timeBox.id = 'timeBox'
+  timeBox.innerHTML = 'TIME: 0.00'
+  gameContainer.appendChild(timeBox)
 }
 
 function keyboardPresses() {
@@ -238,7 +255,7 @@ function addPoints(wordLength) {
     score += wordLength * 10
     pointAlert.innerHTML = '&nbsp;&nbsp;+' + wordLength * 10
   }
-  document.getElementById('score').innerHTML = 'SCORE: ' + score
+  document.getElementById('scoreBox').innerHTML = 'SCORE: ' + score
   pointAlert.classList.remove('hide')
   setTimeout(() => {
     pointAlert.classList.add('hide')
@@ -309,6 +326,32 @@ function animationControl() {
     }
     }
   }
+}
+
+const highScore = localStorage.getItem('mindHighScore')
+let currentHighScore = highScore || 0
+
+function timeTrial() {
+  let countDown = new Date().getTime() + 182000
+  let x = setInterval(function () {
+    let now = new Date().getTime()
+    let distance = countDown - now
+    let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))
+    let seconds = Math.floor((distance % (1000 * 60)) / 1000)
+
+    if (distance < 1) {
+      clearInterval(x)
+      if (score > currentHighScore) {
+        currentHighScore = score
+        localStorage.setItem('mindHighScore', currentHighScore)
+        highScoreBox.textContent = 'HighScore: ' + currentHighScore
+      }
+    } else {
+      let leadingSeconds = ''
+      if (seconds < 10){leadingSeconds = '0' + seconds}else{leadingSeconds = seconds}
+      timeBox.textContent = 'TIME: ' + minutes + '.' + leadingSeconds
+    }
+  }, 1000)
 }
 
 //------------------------------word checker-------------------------------------------------//
