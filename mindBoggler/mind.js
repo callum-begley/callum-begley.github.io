@@ -1,7 +1,7 @@
-//mindbogld mindboglr
+//mindbogld
 //
 //to do:
-// end game after timer
+// gold points for 9+
 // X click letters on box goes dark once used
 //instructions in the your words section
 
@@ -44,7 +44,8 @@ function init() {
   startButton()
   makeOutputBox(gameContainer)
   makeHighScoreBox(gameContainer)
-  enteredWords = []
+  keyboardPresses()
+  gameGridKeys()
 }
 
 function makeGameGrid(gameContainer) {
@@ -118,7 +119,7 @@ function makeAlertBox(gameGrid) {
   const alertBox = document.createElement('div')
   alertBox.className = 'hide'
   alertBox.id = 'alertBox'
-  alertBox.textContent = ''
+  alertBox.innerHTML = 'Press Start to begin<br/>'
   gameGrid.appendChild(alertBox)
   makePointAlertBox(gameGrid)
 }
@@ -132,20 +133,21 @@ function makePointAlertBox(gameGrid) {
 }
 
 function startButton() {
-  alertBox.innerHTML = 'Press Start to begin<br/>'
   alertBox.classList.remove('hide')
   const startButton = document.createElement('button')
   startButton.className = 'startButton'
   startButton.textContent = 'START'
   alertBox.appendChild(startButton)
   startButton.addEventListener('click', function () {
-    animationControl()
     gameStart = true
-    let hiddenWord = random()
+    animationControl()
+    score = 0
+    scoreBox.innerHTML = 'SCORE: ' + score
+    enteredWords = []
+    outputBox.innerHTML = ''
+    hiddenWord = random()
     console.log('H: ' + hiddenWord)
     wordJumbler(hiddenWord)
-    keyboardPresses()
-    gameGridKeys()
     alertBox.classList.add('hide')
     timeTrial()
   })
@@ -179,7 +181,6 @@ function makeHighScoreBox(gameContainer) {
 }
 
 function keyboardPresses() {
-  if (gameStart === true) {
     document.body.onkeydown = (e) => {
       let key = e.key
       if (key === 'Enter') {
@@ -189,6 +190,7 @@ function keyboardPresses() {
         onKeyPress('{bksp}')
       }
       if (isAlpha(key)) {
+        if (gameStart === false) return
         if (hiddenWord.includes(key)) {
           inputBox.textContent += key
           alertBox.innerHTML = ''
@@ -201,13 +203,13 @@ function keyboardPresses() {
           }, 500)
         }
       }
-    }
   }
 }
 
 function onKeyPress(button) {
-  if (gameStart === true) {
-    if (button === '{entr}') {
+  let key = button
+  if (gameStart === false) return
+    if (key === '{entr}') {
       let word = inputBox.textContent
       if (isWordValid(word)) {
         if (!enteredWords.includes(word)) {
@@ -234,23 +236,34 @@ function onKeyPress(button) {
         alertBox.classList.remove('hide')
         return
       }
-    } else if (button === '{bksp}') {
+    } else if (key === '{bksp}') {
       deleteLetter(inputBox.textContent)
       alertBox.innerHTML = ''
       alertBox.classList.add('hide')
-    } else if (button === '{clear}') {
+    } else if (key === '{clear}') {
       inputBox.textContent = ''
       alertBox.innerHTML = ''
       alertBox.classList.add('hide')
+    } else if (isAlpha(key)){
+      if (hiddenWord.includes(key)) {
+        inputBox.textContent += key
+        alertBox.innerHTML = ''
+        alertBox.classList.add('hide')
+      } else {
+        alertBox.innerHTML = 'LETTER NOT ALLOWED'
+        alertBox.classList.remove('hide')
+        setTimeout(() => {
+          alertBox.classList.add('hide')
+        }, 500)
+      }
     }
-  }
 }
 //---------------------------------------------------------------
 
 function addPoints(wordLength) {
   if (wordLength > 8) {
     score += wordLength * 20
-    pointAlert.innerHTML = '+' + wordLength * 20
+    pointAlert.innerHTML = '<p class="goldLetters">+' + wordLength * 20 + '</p>'
   } else {
     score += wordLength * 10
     pointAlert.innerHTML = '&nbsp;&nbsp;+' + wordLength * 10
@@ -259,7 +272,7 @@ function addPoints(wordLength) {
   pointAlert.classList.remove('hide')
   setTimeout(() => {
     pointAlert.classList.add('hide')
-  }, 500)
+  }, 800)
 }
 
 function isWordValid(enteredWord) {
@@ -287,17 +300,17 @@ function updateGameGrid(array) {
 }
 
 function gameGridKeys() {
-  let j = 0
+  //change by class?
   for (let i = 0; i < 3; i++) {
     for (let o = 0; o < 3; o++) {
       let charBox = document.getElementById('charBox' + i + '' + o)
       charBox.addEventListener('click', function () {
-        inputBox.textContent += charBox.innerHTML
-        alertBox.classList.add('hide')
+        onKeyPress(charBox.innerHTML)
       })
     }
   }
 }
+
 
 function isAlpha(key) {
   return key.length === 1 && key.match(/[a-z]/i)
@@ -314,16 +327,17 @@ function wordJumbler(string) {
   updateGameGrid(randArray)
 }
 
-function animationControl() {
-  for (let i = 0; i < 3; i++) {
-    for (let o = 0; o < 3; o++) {
-      let charBox = document.getElementById('charBox' + i + '' + o)
-      if (gameStart === false) {
-      charBox.style.animation = 'slide 5s forwards'
-      charBox.style.animationPlayState = "paused"
-    } else {
-      charBox.style.animationPlayState = "initial"
-    }
+
+function animationControl(randArray) {
+  const anim = document.getAnimations()
+
+  for (let i = 0; i < anim.length; i++){
+    if (gameStart === true){
+      //anim[i].pause()
+      anim[i].finish()
+    }else{
+      anim[i].currentTime = 0
+      anim[i].play()
     }
   }
 }
@@ -344,17 +358,21 @@ function timeTrial() {
       if (score > currentHighScore) {
         currentHighScore = score
         localStorage.setItem('mindHighScore', currentHighScore)
-        highScoreBox.textContent = 'HighScore: ' + currentHighScore
+        highScoreBox.textContent = 'HighScore: ' + currentHighScore 
       }
+      gameStart = false
+      alertBox.innerHTML = 'TIMES UP!</br>YOU SCORED ' + score + ' POINTS</br>TRY TO BEAT IT BY HITTING START</br>'
+      inputBox.innerHTML = ''
+      startButton()
     } else {
-      let leadingSeconds = ''
-      if (seconds < 10){leadingSeconds = '0' + seconds}else{leadingSeconds = seconds}
-      timeBox.textContent = 'TIME: ' + minutes + '.' + leadingSeconds
+        let leadingSeconds = ''
+        if (seconds < 10){leadingSeconds = '0' + seconds}else{leadingSeconds = seconds}
+        timeBox.textContent = 'TIME: ' + minutes + '.' + leadingSeconds
     }
   }, 1000)
 }
 
-//------------------------------word checker-------------------------------------------------//
+//-----------------------------Dictionary Util--------------------------//
 const wordExists = (text) => {
   if (typeof text === 'string') {
     const cleaned = text.trim().toLowerCase()

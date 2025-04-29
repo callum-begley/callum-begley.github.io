@@ -54,10 +54,10 @@ body {
   font-weight: 500;
   background-color: rgb(0, 55, 255);
 }
-.charBox:hover {
+/* .charBox:hover {
   background-color: rgb(25, 74, 252);
   transform: scale(105%);
-}
+} */
 
 .button {
   width: 120px;
@@ -159,8 +159,8 @@ body {
   border-color: black;
   position: absolute;
   width: auto;
-  font-size: 0.5em;
-  font-weight: bold;
+  font-size: 1em;
+  font-weight: bolder;
   background-color: #ffffff;
   bottom: 100;
   transform: translate(0%, -110%);
@@ -244,7 +244,7 @@ body {
   animation-name: ani00;
   animation-duration: 5s;
   animation-play-state: running;
-  animation-iteration-count: infinite;
+  animation-iteration-count: 100;
 }
 @keyframes ani00 {
   0% {
@@ -260,7 +260,7 @@ body {
   animation-name: ani01;
   animation-duration: 5s;
   animation-play-state: running;
-  animation-iteration-count: infinite;
+  animation-iteration-count: 100;
   animation-delay: 0.25s;
 }
 @keyframes ani01 {
@@ -277,7 +277,7 @@ body {
   animation-name: ani02;
   animation-duration: 5s;
   animation-play-state: running;
-  animation-iteration-count: infinite;
+  animation-iteration-count: 100;
   animation-delay: 0.5s;
 }
 @keyframes ani02 {
@@ -294,7 +294,7 @@ body {
   animation-name: ani10;
   animation-duration: 5s;
   animation-play-state: running;
-  animation-iteration-count: infinite;
+  animation-iteration-count: 100;
   animation-delay: 0.75s;
 }
 @keyframes ani10 {
@@ -311,7 +311,7 @@ body {
   animation-name: ani11;
   animation-duration: 5s;
   animation-play-state: running;
-  animation-iteration-count: infinite;
+  animation-iteration-count: 100;
   animation-delay: 1s;
 }
 @keyframes ani11 {
@@ -327,8 +327,8 @@ body {
 #charBox12 {
   animation-name: ani12;
   animation-duration: 5s;
-  animation-play-state: running;
-  animation-iteration-count: infinite;
+  /* animation-play-state: running; */
+  animation-iteration-count: 100;
   animation-delay: 1.25s;
 }
 @keyframes ani12 {
@@ -345,7 +345,7 @@ body {
   animation-name: ani20;
   animation-duration: 5s;
   animation-play-state: running;
-  animation-iteration-count: infinite;
+  animation-iteration-count: 100;
   animation-delay: 1.5s;
 }
 @keyframes ani20 {
@@ -362,7 +362,7 @@ body {
   animation-name: ani21;
   animation-duration: 5s;
   animation-play-state: running;
-  animation-iteration-count: infinite;
+  animation-iteration-count: 100;
   animation-delay: 1.75s;
 }
 @keyframes ani21 {
@@ -379,7 +379,7 @@ body {
   animation-name: ani22;
   animation-duration: 5s;
   animation-play-state: running;
-  animation-iteration-count: infinite;
+  animation-iteration-count: 100;
   animation-delay: 2s;
 }
 @keyframes ani22 {
@@ -394,10 +394,9 @@ body {
 }
 /* ------ */
 
-@media only screen and (min-width: 601px) {
-  #alertBox {
-    font-size: 0.8em;
-  }
+.charBox:hover {
+  background-color: rgb(25, 74, 252);
+  transform: scale(105%);
 }
 
 @media only screen and (max-width: 600px) {
