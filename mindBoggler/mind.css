@@ -54,10 +54,10 @@ body {
   font-weight: 500;
   background-color: rgb(0, 55, 255);
 }
-/* .charBox:hover {
+.charBox:hover {
   background-color: rgb(25, 74, 252);
   transform: scale(105%);
-} */
+}
 
 .button {
   width: 120px;
@@ -238,8 +238,64 @@ body {
   width: 130px;
 }
 
-/* animation */
+/* _________________________________________________________________________ */
 
+.charBox {
+  animation-name: ani;
+  animation-duration: 5s;
+  animation-play-state: running;
+  animation-iteration-count: 100;
+}
+
+@keyframes ani {
+  0% {
+    background-color: rgb(25, 74, 252);
+    transform: scale(110%);
+  }
+  10% {
+    background-color: rgb(0, 55, 255);
+    transform: scale(100%);
+  }
+}
+
+#charBox00 {
+  animation-delay: 0s;
+}
+
+#charBox01 {
+  animation-delay: 0.25s;
+}
+
+#charBox02 {
+  animation-delay: 0.5s;
+}
+
+#charBox10 {
+  animation-delay: 0.75s;
+}
+
+#charBox11 {
+  animation-delay: 1s;
+}
+
+#charBox12 {
+  animation-delay: 1.25s;
+}
+
+#charBox20 {
+  animation-delay: 1.5s;
+}
+
+#charBox21 {
+  animation-delay: 1.75s;
+}
+
+#charBox22 {
+  animation-delay: 2s;
+}
+
+/* animation */
+/* 
 #charBox00 {
   animation-name: ani00;
   animation-duration: 5s;
@@ -327,7 +383,7 @@ body {
 #charBox12 {
   animation-name: ani12;
   animation-duration: 5s;
-  /* animation-play-state: running; */
+  animation-play-state: running;
   animation-iteration-count: 100;
   animation-delay: 1.25s;
 }
@@ -391,13 +447,8 @@ body {
     background-color: rgb(0, 55, 255);
     transform: scale(100%);
   }
-}
+} */
 /* ------ */
-
-.charBox:hover {
-  background-color: rgb(25, 74, 252);
-  transform: scale(105%);
-}
 
 @media only screen and (max-width: 600px) {
   /* .charBox {

@@ -315,14 +315,20 @@ function wordJumbler(string) {
 }
 
 function animationControl() {
-  const anim = document.getAnimations()
+  if (gameStart === false){
+    for (let i = 0; i < 3; i++) {
+      for (let o = 0; o < 3; o++) {
+        let charBox = document.getElementById('charBox' + i + '' + o)
+        charBox.classList.remove('charBox')
+        void charBox.offsetWidth;
+        charBox.classList.add('charBox')
+      }
+    }
+  }
+  const anim = document.getAnimations('charBox')
   for (let i = 0; i < anim.length; i++){
     if (gameStart === true){
-      //anim[i].pause()
       anim[i].finish()
-    }else{
-      anim[i].currentTime = 0
-      anim[i].play()
     }
   }
 }
@@ -332,6 +338,7 @@ let currentHighScore = highScore || 0
 
 function timeTrial() {
   let countDown = new Date().getTime() + 181000
+  // let countDown = new Date().getTime() + 5000
   let x = setInterval(function () {
     let now = new Date().getTime()
     let distance = countDown - now
@@ -346,7 +353,8 @@ function timeTrial() {
         highScoreBox.textContent = 'HighScore: ' + currentHighScore 
       }
       gameStart = false
-      alertBox.innerHTML = 'TIMES UP!</br>YOU SCORED ' + score + ' POINTS</br>TRY TO BEAT IT BY HITTING START</br>'
+      animationControl()
+      alertBox.innerHTML = 'TIMES UP!</br>YOU SCORED ' + score + ' POINTS</br>THE HIDDEN WORD WAS: ' + hiddenWord + '</br>TRY TO BEAT IT BY HITTING START</br>'
       inputBox.innerHTML = ''
       startButton()
     } else {
