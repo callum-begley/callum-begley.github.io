@@ -243,7 +243,7 @@ body {
   animation-name: ani;
   animation-duration: 5s;
   animation-play-state: running;
-  animation-iteration-count: 100;
+  animation-iteration-count: 1000;
 }
 @keyframes ani {
   0% {
