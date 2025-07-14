@@ -8,7 +8,7 @@
 let correctString = []
 let containsString = []
 let incorrectString = []
-let wordList = ['vinyl']
+let wordList = ['zhuzh']
 let gameState = {}
 
 const Keyboard = window.SimpleKeyboard.default
