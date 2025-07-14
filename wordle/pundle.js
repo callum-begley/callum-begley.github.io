@@ -180,10 +180,7 @@ function checkLetters() {
     )
     let letter = charBox.textContent.toLowerCase()
 
-    if (
-      letter == gameState.hiddenWord[i] &&
-      checkedLetters.includes(letter) === false
-    ) {
+    if (letter == gameState.hiddenWord[i]) {
       charBox.classList.add('correct')
       correctString.push(letter.toUpperCase())
       checkedLetters.push(letter)
@@ -196,7 +193,7 @@ function checkLetters() {
       checkedLetters.push(letter)
     } else if (
       !gameState.hiddenWord.includes(letter) ||
-      checkedLetters.includes(letter)
+      !checkedLetters.includes(letter)
     ) {
       charBox.classList.add('empty')
       incorrectString.push(letter.toUpperCase())
@@ -269,7 +266,7 @@ function isAlpha(key) {
 function tryAgainButton(alertBox) {
   const button = document.createElement('button')
   button.className = 'resetButton'
-  button.textContent = 'Try Another?'
+  button.textContent = 'Try Again?'
   alertBox.appendChild(button)
   tryAgain(button)
   return button
